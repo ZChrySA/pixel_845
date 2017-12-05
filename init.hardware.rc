@@ -115,6 +115,10 @@ on init && property:vendor.skip.init=0
     write /sys/block/dm-4/queue/read_ahead_kb 2048
     write /sys/block/dm-5/queue/read_ahead_kb 2048
 
+    # Enable idle state listener
+    write /sys/class/drm/card0/device/idle_encoder_mask 1
+    write /sys/class/drm/card0/device/idle_timeout_ms 100
+
     # Disable UFS powersaving
     write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
     write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
