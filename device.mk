@@ -453,7 +453,11 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.2-service.xiaomi_sdm845-libperfmgr \
     android.hardware.power.stats@1.0-service.dipper
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
