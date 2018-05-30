@@ -81,3 +81,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Modem logging file
 PRODUCT_COPY_FILES += \
     device/xiaomi/dipper/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc
+
+PRODUCT_PACKAGES += \
+    llkd
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.khungtask.enable=false
