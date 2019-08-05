@@ -7,3 +7,6 @@ type vendor_fp_prop, property_type;
 type vendor_wifi_version, property_type;
 
 type vendor_wifi_active_interface, property_type;
+
+type vendor_power_prop, property_type;
+
