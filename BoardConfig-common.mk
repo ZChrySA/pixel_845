@@ -21,6 +21,9 @@ BUILD_BROKEN_DUP_RULES := true
 
 LOCAL_PATH := device/xiaomi/dipper
 
+# TODO(b/131162102): remove this after cleaning up accesses of sysprops
+BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
