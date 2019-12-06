@@ -405,3 +405,5 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/dipper/$(PRODUCT_PLATFORM)/kernel-headers
+
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
