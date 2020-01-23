@@ -506,6 +506,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_enabled=0 \
     persist.vendor.radio.snapshot_timer=0
 
+# USB
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.usb.diag.func.name=diag
+
 # Radio
 PRODUCT_PACKAGES += \
     libjson \
