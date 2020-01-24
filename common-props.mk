@@ -82,14 +82,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true
 
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
-    persist.vendor.bt.aac_frm_ctl.enabled=true \
-    persist.vendor.bt.enable.splita2dp=true \
-    vendor.bluetooth.soc=cherokee \
-    vendor.qcom.bluetooth.soc=cherokee
-
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=true \
