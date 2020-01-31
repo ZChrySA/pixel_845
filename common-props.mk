@@ -128,11 +128,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.gralloc.enable_fb_ubwc=1
+    debug.egl.hw=0 \
     debug.sf.disable_backpressure=1 \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.latch_unsignaled=1 \
-    debug.sf.hw=1 \
+    debug.sf.hw=0 \
     persist.demo.hdmirotationlock=false \
     persist.sys.sf.native_mode=0 \
     ro.opengles.version=196610 \
