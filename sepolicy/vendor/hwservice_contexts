@@ -15,3 +15,6 @@ vendor.xiaomi.hardware.mlipay::IMlipayService                                 u:
 
 com.quicinc.cne.api::IApiService                                              u:object_r:hal_cne_hwservice:s0
 com.quicinc.cne.server::IServer                                               u:object_r:hal_cne_hwservice:s0
+
+# Google Wi-Fi
+vendor.google.wifi_ext::IWifiExt                                u:object_r:hal_wifi_ext_hwservice:s0

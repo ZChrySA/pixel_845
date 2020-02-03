@@ -1,2 +1,5 @@
 type hal_mlipay_hwservice, hwservice_manager_type;
 type hal_cne_hwservice, hwservice_manager_type;
+
+# Google Wi-Fi
+type hal_wifi_ext_hwservice, hwservice_manager_type;
