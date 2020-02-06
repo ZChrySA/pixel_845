@@ -45,6 +45,9 @@ $(call inherit-product-if-exists, vendor/xiaomi/sdm845-common/sdm845-common-vend
 # STOPSHIP deal with Qualcomm stuff later
 # PRODUCT_RESTRICT_VENDOR_FILES := all
 
+PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
+
+
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Android
 PRODUCT_NAME := aosp_polaris
