@@ -192,10 +192,13 @@ PRODUCT_PACKAGES += \
     hwcomposer.$(PRODUCT_PLATFORM) \
     libtinyxml \
     libvulkan \
-    lights.$(PRODUCT_PLATFORM) \
+    lights.$(PRODUCT_HARDWARE) \
     memtrack.$(PRODUCT_PLATFORM) \
     vendor.display.config@1.7 \
     vendor.qti.hardware.display.allocator@1.0-service
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.lights=qcom
 
 # DRM
 PRODUCT_PACKAGES += \
