@@ -506,9 +506,7 @@ vendor/lib64/libqcodec2.so|acbe155c5ccb5b7b1fc872923342c67d3500f232
 # Media - from blueline - QP1A.191005.007
 vendor/lib/libOmxDsdDec.so|871a93aa998308e6e5c26ffd9763cccb583012fd
 vendor/lib/libdsd2pcm.so|e00f949f1dbd97f736eae4cfe0e9669b947831b2
-vendor/lib/libmm-omxcore.so|e53c3948f3f1f53521e5974bab310b38c51875fa
 vendor/lib/libswvdec.so|62b201f5b152d2f66fa1340a9f7456b394b69a96
-vendor/lib64/libmm-omxcore.so|8a95bbee42765998a003d0001e6e2f309a7e8140
 vendor/lib64/libswvdec.so|0631bf25126ddc9e7940a3be1d1cd68cfacfa52c
 
 # Media codecs - from blueline - QP1A.191005.007
