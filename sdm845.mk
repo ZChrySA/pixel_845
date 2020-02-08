@@ -122,7 +122,8 @@ PRODUCT_COPY_FILES += \
 # Bluetooth Audio HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
-    audio.bluetooth.default
+    audio.bluetooth.default \
+    libbluetooth_audio_session
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
