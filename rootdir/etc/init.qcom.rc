@@ -571,11 +571,6 @@ service vendor.port-bridge /system/vendor/bin/port-bridge
 service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
 
-service vendor.ipacm /system/vendor/bin/ipacm
-    class main
-    user radio
-    group radio inet
-
 service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class early_hal
     user system

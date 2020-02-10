@@ -473,8 +473,11 @@ vendor/lib/libqti-iopd.so
 vendor/lib/vendor.qti.hardware.iop@1.0.so
 vendor/lib/vendor.qti.hardware.iop@2.0.so
 
-# IPA firmware
+# IPA
+vendor/bin/ipacm
 vendor/etc/init/ipa_fws.rc
+vendor/etc/init/ipacm.rc
+vendor/etc/IPACM_cfg.xml
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
 vendor/firmware/ipa_fws.b02
@@ -482,6 +485,10 @@ vendor/firmware/ipa_fws.b03
 vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
+vendor/lib64/libipanat.so
+vendor/lib64/libnfnetlink.so
+vendor/lib64/libnetfilter_conntrack.so
+vendor/lib64/liboffloadhal.so
 
 # IRQ balance
 vendor/bin/msm_irqbalance
