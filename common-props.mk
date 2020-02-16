@@ -128,18 +128,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=0 \
-    debug.sf.disable_backpressure=1 \
+    debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.early_app_phase_offset_ns=500000 \
     debug.sf.early_gl_app_phase_offset_ns=15000000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
     debug.sf.early_phase_offset_ns=500000 \
     debug.sf.enable_gl_backpressure=1 \
-    debug.sf.enable_hwc_vds=1 \
-    debug.sf.latch_unsignaled=1 \
     debug.sf.hw=1 \
     persist.demo.hdmirotationlock=false \
-    persist.sys.sf.native_mode=0 \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2 \
     ro.opengles.version=196610 \
     sdm.debug.disable_inline_rotator=1 \
     sdm.debug.disable_inline_rotator_secure=1
