@@ -28,7 +28,6 @@
 #
 
 import /vendor/etc/init/init.qcom.usb.rc
-import /vendor/etc/init/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.power.rc
 
 on property:init.svc.vendor.charger=running

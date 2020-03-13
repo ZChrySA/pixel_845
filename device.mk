@@ -252,7 +252,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Common init scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.msm.usb.configfs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.msm.usb.configfs.rc \
     $(LOCAL_PATH)/init.hardware.early_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).early_boot.sh \
     $(LOCAL_PATH)/init.hardware.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).post_boot.sh  \
     $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc \
