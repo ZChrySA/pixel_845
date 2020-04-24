@@ -392,7 +392,8 @@ PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
     libwifi-hal-qcom \
     libwifi-hal \
-    libwpa_client
+    libwpa_client \
+    WifiOverlay
 
 LIB_NL := libnl_32
 PRODUCT_PACKAGES += $(LIB_NL)
