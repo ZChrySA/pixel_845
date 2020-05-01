@@ -18,7 +18,8 @@
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/qcom/sdm845
+    hardware/qcom/sdm845 \
+    hardware/google/pixel
 
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 
@@ -289,6 +290,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.3-service.dipper-libperfmgr
+    android.hardware.power.stats@1.0-service.xiaomi
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
