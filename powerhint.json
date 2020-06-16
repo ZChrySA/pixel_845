@@ -7,7 +7,8 @@
         "9999999",
         "1420800",
         "1324800",
-        "1228800"
+        "1228800",
+        "576000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -32,7 +33,8 @@
         "1996800",
         "1459200",
         "1363200",
-        "1286400"
+        "1286400",
+        "0"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -683,6 +685,18 @@
       "Node": "DisplayWakeup",
       "Duration": 60,
       "Value": "1"
+    },
+    {
+      "PowerHint": "Flipendo",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "576000"
+    },
+    {
+      "PowerHint": "Flipendo",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "0"
     }
   ]
 }
