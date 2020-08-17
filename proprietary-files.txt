@@ -360,14 +360,6 @@ vendor/lib64/unnhal-acc-adreno.so
 vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hvx.so
 
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib/libperipheral_client.so
-vendor/lib/libspcom.so
-vendor/lib64/libperipheral_client.so
-vendor/lib64/libspcom.so
-
 # QMI
 etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
 etc/permissions/qti_permissions.xml
@@ -747,6 +739,14 @@ vendor/lib64/libOmxAmrwbplusDec.so|9532fb9d50f39788608b36cd2c4978eedd583ca3
 vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
 vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
 vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
+
+# Peripheral manager
+vendor/bin/pm-proxy
+vendor/bin/pm-service
+vendor/lib/libperipheral_client.so
+vendor/lib/libspcom.so
+vendor/lib64/libperipheral_client.so
+vendor/lib64/libspcom.so
 
 # Power-off alarm
 lib64/vendor.qti.hardware.alarm@1.0.so
