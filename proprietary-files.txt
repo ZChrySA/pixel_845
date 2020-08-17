@@ -576,13 +576,6 @@ vendor/lib/libscvePanorama.so
 vendor/lib/libscvePanorama_lite.so
 vendor/lib/libscveScan3D.so
 
-# Soter
--app/SoterService/SoterService.apk
-vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
-vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
-
 # SSR
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
@@ -766,6 +759,14 @@ vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
 lib64/vendor.qti.hardware.alarm@1.0.so
 framework/vendor.qti.hardware.alarm-V1.0-java.jar
 lib/vendor.qti.hardware.alarm@1.0.so
+
+# Soter
+-framework/vendor.qti.hardware.soter-V1.0-java.jar
+lib64/vendor.qti.hardware.soter@1.0.so
+lib/vendor.qti.hardware.soter@1.0.so
+vendor/bin/hw/vendor.qti.hardware.soter@1.0-service-provision
+vendor/lib64/vendor.qti.hardware.soter@1.0.so
+vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Trusted Execution Environment connector - from blueline - QQ3A.200805.001
 lib/libGPTEE_system.so
