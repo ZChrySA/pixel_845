@@ -585,13 +585,6 @@ vendor/bin/thermal-engine
 vendor/lib64/libthermalclient.so
 vendor/lib/libthermalclient.so
 
-# Time services
--vendor/app/TimeService/TimeService.apk;PRESIGNED
-vendor/bin/time_daemon
-vendor/etc/init/init.time_daemon.rc
-vendor/lib64/libtime_genoff.so
-vendor/lib/libtime_genoff.so
-
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
@@ -767,6 +760,12 @@ lib/vendor.qti.hardware.soter@1.0.so
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service-provision
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
+
+# Time services
+-vendor/app/TimeService/TimeService.apk;PRESIGNED
+vendor/bin/time_daemon
+vendor/lib64/libtime_genoff.so
+vendor/lib/libtime_genoff.so
 
 # Trusted Execution Environment connector - from blueline - QQ3A.200805.001
 lib/libGPTEE_system.so
