@@ -63,26 +63,6 @@ vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib/soundfx/libshoebox.so
 
-# Bluetooth - from blueline - QQ1A.200105.002
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b49707e8bac97a8c01f943c8e3bbaae106beaf87
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|349d3886705bb914e8c2f276487744438c3ca72a
-vendor/lib64/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|d28ce9f3c98e4a75d5ed271225099f8542ed6f3a
-vendor/lib64/btaudio_offload_if.so|3bd7d3f688d9a9e39ea90f339707a76ad740d14f
-vendor/lib64/liba2dpoffload.so|bf2640a25221e977dbbe563469e2281bf57424b2
--vendor/lib64/libbtnv.so|7e2e24a9bc2ab09a84d6ac3e543af37f78df24ce
-vendor/lib64/libbthost_if.so|efc9763f25d635dcc82ddaa30b5261bbdd498a7e
-vendor/lib64/libbt-hidlclient.so|b366c96d844d4ee8f95f9253cb3ad5f89c011fbc
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|14b9f109f62e2655f229a516c2510179459bbf68
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|e8c72840ea700a686dcd87c79875bffdc020e87d
-vendor/lib/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|6b2c451916e4f40b5ce4ecf561b453fa01e2263e
-vendor/lib/btaudio_offload_if.so|7a3939acc856a8e2c1059c388610087c8cb4ea17
-vendor/lib/liba2dpoffload.so|73845e4e0bf779dc98a58b9a8675c2432827f4b7
--vendor/lib/libbtnv.so|4e49be2492c2a0582d11e52769e5fdb386fc50c9
-vendor/lib/libbthost_if.so|2cba411426f9c4f257beeb14a54ce734385c3ff5
-product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
-product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
-
 # CDSP
 vendor/bin/cdsprpcd
 vendor/lib64/libcdsp_default_listener.so
@@ -180,45 +160,6 @@ vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 
-# Display (HDR) - from blueline - QP1A.191005.007
-vendor/lib/libhdr_tm.so|9139883c2e8e95b63b685ef1d51ba98dbf33a78e
-vendor/lib64/libhdr_tm.so|f4830dd37499117c7c6874204a586f1d29bb4956
-
-# Display (SDM) - from blueline - QP1A.191005.007
-vendor/lib/libqseed3.so|56037a595a82701b873da36e0db9456d0f600903
-vendor/lib/libsdedrm.so|16f98b1576a1d484ddbcc3efd1dcacdeb15a0d76
-vendor/lib/libsdm-color.so|30c0500f4f44b928bbe1b03740d759f106379760
-vendor/lib/libsdm-diag.so|c90f0f9bc70c5caabdcafd06347b732889263139
-vendor/lib/libsdm-disp-vndapis.so|52dcdedb5e4edf1c7d0c2d84e863fccf55700a81
-vendor/lib/libsdmextension.so|184aabcf95bf5a34ac3794220b025c1798332b85
-vendor/lib/libtinyxml2_1.so|20854971d8ff6f4a310f5df0caacd2416ebe6b8a
-vendor/lib64/libqseed3.so|8d21e03ba6d73744cafc1ee49ad48fa03be66f50
-vendor/lib64/libsdedrm.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
-vendor/lib64/libsdm-color.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
-vendor/lib64/libsdm-diag.so|15ace9f7f2774e3b2df33a63d39693bb4fffbeec
-vendor/lib64/libsdm-disp-vndapis.so|fd142098094a99da3b8525712e06fd76577ff5ea
-vendor/lib64/libsdmextension.so|e9758acf25768a29af716f842eaf9b1caac02bdf
-vendor/lib64/libtinyxml2_1.so|492182cadae3dcce6f125313e682b4742390b19f
-
-# Display postprocessing - from blueline - QP1A.191005.007
-vendor/bin/mm-pp-dpps|84a741c04ce09653e8712fcea50b009346a5fbc5
-vendor/lib/libdisp-aba.so|3418decf2cd962e5e2a244fa988cdeb35739574f
-vendor/lib/libdisplayqos.so|39e68fb4ced154b7073c1220d929479bb9ed1371
-vendor/lib/vendor.display.color@1.0.so|6b7557f5bf65be8c92481e46e9a81f4e95b5343a
-vendor/lib/vendor.display.color@1.1.so|04a96a4d2995d14a6bf70b8501f545b24ea8b171
-vendor/lib/vendor.display.color@1.2.so|ed9803c342e3931213d6bf89e8843bcf3b0a62f1
-vendor/lib/vendor.display.postproc@1.0.so|ca952cfc6eb8d17f957d50905eeef449d2744478
-vendor/lib64/libdisp-aba.so|5d3c286651fd715f5ee8c975027c21d28063834e
-vendor/lib64/libdisplayqos.so|4d1a8d40308ede98d28d3532f3e1137f3a86a224
-vendor/lib64/vendor.display.color@1.0.so|397f3492343489d65f992df44e3098cdc059a96d
-vendor/lib64/vendor.display.color@1.1.so|dc8f4722a6a7ab0b790e26e1b95553ae6960bac6
-vendor/lib64/vendor.display.color@1.2.so|1d4808a5ed3791e8ee0c5da34d0032a0dd5576ff
-vendor/lib64/vendor.display.postproc@1.0.so|a2bb1d20cbcc1f77909c5f0ca9b1b91a18704229
-
-# Display utils - from blueline - QP1A.191005.007
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|ec3690ac937be4e1a4cf37e1471fb2bcbe03787a
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|41d9192472e0e67bb6564dcd806af984afa89b24
-
 # DRM
 vendor/bin/qseecomd
 vendor/bin/seemp_healthd
@@ -273,48 +214,6 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno) - from blueline - QP1A.191005.007
-vendor/lib/egl/eglSubDriverAndroid.so|0c11f1a3f664788a2d14fc1453cd817259d0c8dd
-vendor/lib/egl/libEGL_adreno.so|28f61fb3fc1ad3e818a89dab727673641b74343d
-vendor/lib/egl/libGLESv1_CM_adreno.so|08276017c46420f599a9ffed48a2005e01c5b44a
-vendor/lib/egl/libGLESv2_adreno.so|5832b3370e78b4dcf5a5be6283c28e4ea39574db
-vendor/lib/egl/libQTapGLES.so|8f7cf5f06151a5bed9b17ec2d6417c595705fcba
-vendor/lib/egl/libq3dtools_adreno.so|9ee336663baa494152ae71d2e3c52690900a1a49
-vendor/lib/egl/libq3dtools_esx.so|8513d40118d84c011e2536a8345b4dec41a8a6c4
-vendor/lib/libC2D2.so|b1f941f9e17a68d80bd1d6c7f8a51c0d6dbe64a4
-vendor/lib/libCB.so|62e0e11ccafe80d3c7418e3d3fbe3a84a6b69287
-vendor/lib/libOpenCL.so|d1699a590a52b11c469adcf66c1f1e9e66c7d739
-vendor/lib/libOpenCL-pixel.so|e7739dced2ec60d27abe0286a16811f8076535c8
-vendor/lib/libRSDriver_adreno.so|f182574cb1255827a51e00919981fcfa4fcbfc0c
-vendor/lib/libadreno_utils.so|65d1f5902bb890f8a9fefc8150d60daaa536d536
-vendor/lib/libbccQTI.so|33f19e5755981dbe787cf58fb0c35603700d110e
-vendor/lib/libc2d30_bltlib.so|ab5707c5a67f9d4bce1cf3baa8eb2af94be3fae7
-vendor/lib/libgsl.so|7e51b05f368e65703fe6acee6c58ee45bfa21052
-vendor/lib/libllvm-glnext.so|b05fac014be83f3047825cbb52dac4a9f9a45b60
-vendor/lib/libllvm-qcom.so|1d573aba4bc9ffa43032e23717d4f82aa2be69fc
-vendor/lib/librs_adreno.so|9137ed75e8ffd86ef226ddd2f67ac39d30a739c5
-vendor/lib/librs_adreno_sha1.so|33861c21e7964bf09bdf0d4f1dc8d9f54d5cc156
-vendor/lib64/egl/eglSubDriverAndroid.so|852d4844baf7a54a8b3011f0ef65e530585450f4
-vendor/lib64/egl/libEGL_adreno.so|ad8907a4068e89b116d63f2dd6b957819c7c3c8a
-vendor/lib64/egl/libGLESv1_CM_adreno.so|d480b84f93614457064f60f645bd9b3fa19a125d
-vendor/lib64/egl/libGLESv2_adreno.so|9a3b0696a5dc1547107efd5c7df52112898d4e89
-vendor/lib64/egl/libQTapGLES.so|bc6dcfe5eeec6341ec3343e367fd63efebc39f1e
-vendor/lib64/egl/libq3dtools_adreno.so|54b6270cae3d7254ae8b614c64f8d8bd14907dad
-vendor/lib64/egl/libq3dtools_esx.so|28a7b6875dab8d7aa79e5ac802bf21f05005afe5
-vendor/lib64/libC2D2.so|8a19b8b1476f44c5a44f1bd3c761df40cace39b9
-vendor/lib64/libCB.so|c587adff5f1cebebf7dd1c0d5a7c7c1d022b83da
-vendor/lib64/libOpenCL.so|0a7811295b3d1d2a941ec7277cbb888a85133e7c
-vendor/lib64/libOpenCL-pixel.so|2d128b6a100900e4246e89b7dbf1fc996186934e
-vendor/lib64/libRSDriver_adreno.so|5cdcc70b4807007c18aab4957c2add61407bbb18
-vendor/lib64/libadreno_utils.so|f1d2d9ee005355e9b3a2f8e7f6554b30ad5dbe7b
-vendor/lib64/libbccQTI.so|24785b0482a8e8454a4e760f0611b90d9297c98e
-vendor/lib64/libc2d30_bltlib.so|8a06ceaa7c3e215ab4506035b403e0b351f58075
-vendor/lib64/libgsl.so|1fe579181f5fa2753d66188139c16f45a04492c1
-vendor/lib64/libllvm-glnext.so|489201bbae2f228b01ddd11f79f8408c022f80f9
-vendor/lib64/libllvm-qcom.so|e57a2431096d28c3e6757075863836cb9e92838a
-vendor/lib64/librs_adreno.so|778128a74f180bbb628d6c17f43aa211be50988c
-vendor/lib64/librs_adreno_sha1.so|d5fd0c0688ab454da7cdd787a9f97338a3e53bc9
-
 # Graphics (Adreno firmware)
 vendor/firmware/a630_gmu.bin
 vendor/firmware/a630_sqe.fw
@@ -323,10 +222,6 @@ vendor/firmware/a630_zap.b01
 vendor/firmware/a630_zap.b02
 vendor/firmware/a630_zap.elf
 vendor/firmware/a630_zap.mdt
-
-# Graphics (Vulkan) - from blueline - QP1A.191005.007
-vendor/lib/hw/vulkan.sdm845.so|f43ce630bb57dd2306b8ea0ea817291990e0eb3d
-vendor/lib64/hw/vulkan.sdm845.so|e2e388bcf490dc32bf1b13751b040b21d8af3cc6
 
 # IMS
 lib/libdiag_system.so
@@ -492,38 +387,6 @@ vendor/lib64/liblistenjni.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
 vendor/lib64/libjnihelper.so
-
-# Media C2 - from blueline - QP1A.191005.007
-vendor/bin/hw/vendor.qti.media.c2@1.0-service|5f500c8fb5b9d1f2a0d5b29f90388382b12eb667
-vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
-vendor/lib/libqcodec2.so|76bff930e0a74df18e824229bb847ff04cd27b38
-vendor/lib64/libqcodec2.so|acbe155c5ccb5b7b1fc872923342c67d3500f232
-
-# Media - from blueline - QP1A.191005.007
-vendor/lib/libOmxDsdDec.so|871a93aa998308e6e5c26ffd9763cccb583012fd
-vendor/lib/libdsd2pcm.so|e00f949f1dbd97f736eae4cfe0e9669b947831b2
-vendor/lib/libswvdec.so|62b201f5b152d2f66fa1340a9f7456b394b69a96
-vendor/lib64/libswvdec.so|0631bf25126ddc9e7940a3be1d1cd68cfacfa52c
-
-# Media codecs - from blueline - QP1A.191005.007
-vendor/lib/libAlacSwDec.so|92ee6aa78c6874f66ab92ba384e009098d9ba504
-vendor/lib/libApeSwDec.so|6fea8d930a6884c267065931e3559b97789f9149
-vendor/lib/libFlacSwDec.so|f3c6fc2753298af4dd7499b8046f339bb92b581a
-vendor/lib/libMpeg4SwEncoder.so|d8b728daf8a5dc34862b564b0ea7d0582f2787eb
-vendor/lib/libOmxAlacDecSw.so|8a9904551fe09065ed17e816fd3b10fbcd82e849
-vendor/lib/libOmxAmrwbplusDec.so|698358712212330f24563a7b2b94c5d169badd69
-vendor/lib/libOmxApeDecSw.so|be77db0acb002d46c0c6464fa933e9908f303987
-vendor/lib/libOmxEvrcDec.so|da60effe36ca3876adaf5dca3a6a6086a024ed19
-vendor/lib/libOmxQcelp13Dec.so|a2e2e820577d160a37cd66cb266e2143fbcbc049
-vendor/lib64/libAlacSwDec.so|916c6e450925a935bde3f5e01076551d7d9b325e
-vendor/lib64/libApeSwDec.so|3588f171f1775ef07d87e4b0d007e22d95fa81b7
-vendor/lib64/libFlacSwDec.so|551c18199e23861b2389de9148a2dc254e355580
-vendor/lib64/libMpeg4SwEncoder.so|97adc8adb1952e76a57bc9f6c2ba2d104345524a
-vendor/lib64/libOmxAlacDecSw.so|d907f76b100d92477fd378d2860418653df758e2
-vendor/lib64/libOmxAmrwbplusDec.so|9532fb9d50f39788608b36cd2c4978eedd583ca3
-vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
-vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
-vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
 
 # Neural network
 vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
@@ -804,6 +667,149 @@ vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wi-Fi
 vendor/bin/cnss-daemon
+
+#
+# from blueline
+#
+
+# Bluetooth - from blueline - QQ1A.200105.002
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b49707e8bac97a8c01f943c8e3bbaae106beaf87
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|349d3886705bb914e8c2f276487744438c3ca72a
+vendor/lib64/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|d28ce9f3c98e4a75d5ed271225099f8542ed6f3a
+vendor/lib64/btaudio_offload_if.so|3bd7d3f688d9a9e39ea90f339707a76ad740d14f
+vendor/lib64/liba2dpoffload.so|bf2640a25221e977dbbe563469e2281bf57424b2
+-vendor/lib64/libbtnv.so|7e2e24a9bc2ab09a84d6ac3e543af37f78df24ce
+vendor/lib64/libbthost_if.so|efc9763f25d635dcc82ddaa30b5261bbdd498a7e
+vendor/lib64/libbt-hidlclient.so|b366c96d844d4ee8f95f9253cb3ad5f89c011fbc
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|14b9f109f62e2655f229a516c2510179459bbf68
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|e8c72840ea700a686dcd87c79875bffdc020e87d
+vendor/lib/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|6b2c451916e4f40b5ce4ecf561b453fa01e2263e
+vendor/lib/btaudio_offload_if.so|7a3939acc856a8e2c1059c388610087c8cb4ea17
+vendor/lib/liba2dpoffload.so|73845e4e0bf779dc98a58b9a8675c2432827f4b7
+-vendor/lib/libbtnv.so|4e49be2492c2a0582d11e52769e5fdb386fc50c9
+vendor/lib/libbthost_if.so|2cba411426f9c4f257beeb14a54ce734385c3ff5
+product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+
+# Display (HDR) - from blueline - QP1A.191005.007
+vendor/lib/libhdr_tm.so|9139883c2e8e95b63b685ef1d51ba98dbf33a78e
+vendor/lib64/libhdr_tm.so|f4830dd37499117c7c6874204a586f1d29bb4956
+
+# Display (SDM) - from blueline - QP1A.191005.007
+vendor/lib/libqseed3.so|56037a595a82701b873da36e0db9456d0f600903
+vendor/lib/libsdedrm.so|16f98b1576a1d484ddbcc3efd1dcacdeb15a0d76
+vendor/lib/libsdm-color.so|30c0500f4f44b928bbe1b03740d759f106379760
+vendor/lib/libsdm-diag.so|c90f0f9bc70c5caabdcafd06347b732889263139
+vendor/lib/libsdm-disp-vndapis.so|52dcdedb5e4edf1c7d0c2d84e863fccf55700a81
+vendor/lib/libsdmextension.so|184aabcf95bf5a34ac3794220b025c1798332b85
+vendor/lib/libtinyxml2_1.so|20854971d8ff6f4a310f5df0caacd2416ebe6b8a
+vendor/lib64/libqseed3.so|8d21e03ba6d73744cafc1ee49ad48fa03be66f50
+vendor/lib64/libsdedrm.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
+vendor/lib64/libsdm-color.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
+vendor/lib64/libsdm-diag.so|15ace9f7f2774e3b2df33a63d39693bb4fffbeec
+vendor/lib64/libsdm-disp-vndapis.so|fd142098094a99da3b8525712e06fd76577ff5ea
+vendor/lib64/libsdmextension.so|e9758acf25768a29af716f842eaf9b1caac02bdf
+vendor/lib64/libtinyxml2_1.so|492182cadae3dcce6f125313e682b4742390b19f
+
+# Display postprocessing - from blueline - QP1A.191005.007
+vendor/bin/mm-pp-dpps|84a741c04ce09653e8712fcea50b009346a5fbc5
+vendor/lib/libdisp-aba.so|3418decf2cd962e5e2a244fa988cdeb35739574f
+vendor/lib/libdisplayqos.so|39e68fb4ced154b7073c1220d929479bb9ed1371
+vendor/lib/vendor.display.color@1.0.so|6b7557f5bf65be8c92481e46e9a81f4e95b5343a
+vendor/lib/vendor.display.color@1.1.so|04a96a4d2995d14a6bf70b8501f545b24ea8b171
+vendor/lib/vendor.display.color@1.2.so|ed9803c342e3931213d6bf89e8843bcf3b0a62f1
+vendor/lib/vendor.display.postproc@1.0.so|ca952cfc6eb8d17f957d50905eeef449d2744478
+vendor/lib64/libdisp-aba.so|5d3c286651fd715f5ee8c975027c21d28063834e
+vendor/lib64/libdisplayqos.so|4d1a8d40308ede98d28d3532f3e1137f3a86a224
+vendor/lib64/vendor.display.color@1.0.so|397f3492343489d65f992df44e3098cdc059a96d
+vendor/lib64/vendor.display.color@1.1.so|dc8f4722a6a7ab0b790e26e1b95553ae6960bac6
+vendor/lib64/vendor.display.color@1.2.so|1d4808a5ed3791e8ee0c5da34d0032a0dd5576ff
+vendor/lib64/vendor.display.postproc@1.0.so|a2bb1d20cbcc1f77909c5f0ca9b1b91a18704229
+
+# Display utils - from blueline - QP1A.191005.007
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|ec3690ac937be4e1a4cf37e1471fb2bcbe03787a
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|41d9192472e0e67bb6564dcd806af984afa89b24
+
+# Graphics (Adreno) - from blueline - QP1A.191005.007
+vendor/lib/egl/eglSubDriverAndroid.so|0c11f1a3f664788a2d14fc1453cd817259d0c8dd
+vendor/lib/egl/libEGL_adreno.so|28f61fb3fc1ad3e818a89dab727673641b74343d
+vendor/lib/egl/libGLESv1_CM_adreno.so|08276017c46420f599a9ffed48a2005e01c5b44a
+vendor/lib/egl/libGLESv2_adreno.so|5832b3370e78b4dcf5a5be6283c28e4ea39574db
+vendor/lib/egl/libQTapGLES.so|8f7cf5f06151a5bed9b17ec2d6417c595705fcba
+vendor/lib/egl/libq3dtools_adreno.so|9ee336663baa494152ae71d2e3c52690900a1a49
+vendor/lib/egl/libq3dtools_esx.so|8513d40118d84c011e2536a8345b4dec41a8a6c4
+vendor/lib/libC2D2.so|b1f941f9e17a68d80bd1d6c7f8a51c0d6dbe64a4
+vendor/lib/libCB.so|62e0e11ccafe80d3c7418e3d3fbe3a84a6b69287
+vendor/lib/libOpenCL.so|d1699a590a52b11c469adcf66c1f1e9e66c7d739
+vendor/lib/libOpenCL-pixel.so|e7739dced2ec60d27abe0286a16811f8076535c8
+vendor/lib/libRSDriver_adreno.so|f182574cb1255827a51e00919981fcfa4fcbfc0c
+vendor/lib/libadreno_utils.so|65d1f5902bb890f8a9fefc8150d60daaa536d536
+vendor/lib/libbccQTI.so|33f19e5755981dbe787cf58fb0c35603700d110e
+vendor/lib/libc2d30_bltlib.so|ab5707c5a67f9d4bce1cf3baa8eb2af94be3fae7
+vendor/lib/libgsl.so|7e51b05f368e65703fe6acee6c58ee45bfa21052
+vendor/lib/libllvm-glnext.so|b05fac014be83f3047825cbb52dac4a9f9a45b60
+vendor/lib/libllvm-qcom.so|1d573aba4bc9ffa43032e23717d4f82aa2be69fc
+vendor/lib/librs_adreno.so|9137ed75e8ffd86ef226ddd2f67ac39d30a739c5
+vendor/lib/librs_adreno_sha1.so|33861c21e7964bf09bdf0d4f1dc8d9f54d5cc156
+vendor/lib64/egl/eglSubDriverAndroid.so|852d4844baf7a54a8b3011f0ef65e530585450f4
+vendor/lib64/egl/libEGL_adreno.so|ad8907a4068e89b116d63f2dd6b957819c7c3c8a
+vendor/lib64/egl/libGLESv1_CM_adreno.so|d480b84f93614457064f60f645bd9b3fa19a125d
+vendor/lib64/egl/libGLESv2_adreno.so|9a3b0696a5dc1547107efd5c7df52112898d4e89
+vendor/lib64/egl/libQTapGLES.so|bc6dcfe5eeec6341ec3343e367fd63efebc39f1e
+vendor/lib64/egl/libq3dtools_adreno.so|54b6270cae3d7254ae8b614c64f8d8bd14907dad
+vendor/lib64/egl/libq3dtools_esx.so|28a7b6875dab8d7aa79e5ac802bf21f05005afe5
+vendor/lib64/libC2D2.so|8a19b8b1476f44c5a44f1bd3c761df40cace39b9
+vendor/lib64/libCB.so|c587adff5f1cebebf7dd1c0d5a7c7c1d022b83da
+vendor/lib64/libOpenCL.so|0a7811295b3d1d2a941ec7277cbb888a85133e7c
+vendor/lib64/libOpenCL-pixel.so|2d128b6a100900e4246e89b7dbf1fc996186934e
+vendor/lib64/libRSDriver_adreno.so|5cdcc70b4807007c18aab4957c2add61407bbb18
+vendor/lib64/libadreno_utils.so|f1d2d9ee005355e9b3a2f8e7f6554b30ad5dbe7b
+vendor/lib64/libbccQTI.so|24785b0482a8e8454a4e760f0611b90d9297c98e
+vendor/lib64/libc2d30_bltlib.so|8a06ceaa7c3e215ab4506035b403e0b351f58075
+vendor/lib64/libgsl.so|1fe579181f5fa2753d66188139c16f45a04492c1
+vendor/lib64/libllvm-glnext.so|489201bbae2f228b01ddd11f79f8408c022f80f9
+vendor/lib64/libllvm-qcom.so|e57a2431096d28c3e6757075863836cb9e92838a
+vendor/lib64/librs_adreno.so|778128a74f180bbb628d6c17f43aa211be50988c
+vendor/lib64/librs_adreno_sha1.so|d5fd0c0688ab454da7cdd787a9f97338a3e53bc9
+
+# Graphics (Vulkan) - from blueline - QP1A.191005.007
+vendor/lib/hw/vulkan.sdm845.so|f43ce630bb57dd2306b8ea0ea817291990e0eb3d
+vendor/lib64/hw/vulkan.sdm845.so|e2e388bcf490dc32bf1b13751b040b21d8af3cc6
+
+# Media C2 - from blueline - QP1A.191005.007
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|5f500c8fb5b9d1f2a0d5b29f90388382b12eb667
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
+vendor/lib/libqcodec2.so|76bff930e0a74df18e824229bb847ff04cd27b38
+vendor/lib64/libqcodec2.so|acbe155c5ccb5b7b1fc872923342c67d3500f232
+
+# Media - from blueline - QP1A.191005.007
+vendor/lib/libOmxDsdDec.so|871a93aa998308e6e5c26ffd9763cccb583012fd
+vendor/lib/libdsd2pcm.so|e00f949f1dbd97f736eae4cfe0e9669b947831b2
+vendor/lib/libswvdec.so|62b201f5b152d2f66fa1340a9f7456b394b69a96
+vendor/lib64/libswvdec.so|0631bf25126ddc9e7940a3be1d1cd68cfacfa52c
+
+# Media codecs - from blueline - QP1A.191005.007
+vendor/lib/libAlacSwDec.so|92ee6aa78c6874f66ab92ba384e009098d9ba504
+vendor/lib/libApeSwDec.so|6fea8d930a6884c267065931e3559b97789f9149
+vendor/lib/libFlacSwDec.so|f3c6fc2753298af4dd7499b8046f339bb92b581a
+vendor/lib/libMpeg4SwEncoder.so|d8b728daf8a5dc34862b564b0ea7d0582f2787eb
+vendor/lib/libOmxAlacDecSw.so|8a9904551fe09065ed17e816fd3b10fbcd82e849
+vendor/lib/libOmxAmrwbplusDec.so|698358712212330f24563a7b2b94c5d169badd69
+vendor/lib/libOmxApeDecSw.so|be77db0acb002d46c0c6464fa933e9908f303987
+vendor/lib/libOmxEvrcDec.so|da60effe36ca3876adaf5dca3a6a6086a024ed19
+vendor/lib/libOmxQcelp13Dec.so|a2e2e820577d160a37cd66cb266e2143fbcbc049
+vendor/lib64/libAlacSwDec.so|916c6e450925a935bde3f5e01076551d7d9b325e
+vendor/lib64/libApeSwDec.so|3588f171f1775ef07d87e4b0d007e22d95fa81b7
+vendor/lib64/libFlacSwDec.so|551c18199e23861b2389de9148a2dc254e355580
+vendor/lib64/libMpeg4SwEncoder.so|97adc8adb1952e76a57bc9f6c2ba2d104345524a
+vendor/lib64/libOmxAlacDecSw.so|d907f76b100d92477fd378d2860418653df758e2
+vendor/lib64/libOmxAmrwbplusDec.so|9532fb9d50f39788608b36cd2c4978eedd583ca3
+vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
+vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
+vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
+
+# Wi-Fi Extension
 vendor/bin/hw/vendor.google.wifi_ext@1.0-service-vendor|a6692345e361e64f8a7882517f7d964b700e5896
 vendor/etc/init/vendor.google.wifi_ext@1.0-service.rc|4c85d466367142c038464bcec503c511cc53d082
 vendor/lib64/vendor.google.wifi_ext@1.0.so|69211ba1e8d6d4269ec22ee4171dfea4c36b9791
