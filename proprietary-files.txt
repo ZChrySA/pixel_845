@@ -327,20 +327,6 @@ vendor/lib64/vendor.qti.imsrtpservice@2.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1.so
 
-# IO prefetcher
-vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
-vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.iop@2.0-impl.so
-vendor/lib64/libqti-iopd-client.so
-vendor/lib64/libqti-iopd.so
-vendor/lib64/vendor.qti.hardware.iop@1.0.so
-vendor/lib64/vendor.qti.hardware.iop@2.0.so
-vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
-vendor/lib/libqti-iopd-client.so
-vendor/lib/libqti-iopd.so
-vendor/lib/vendor.qti.hardware.iop@1.0.so
-vendor/lib/vendor.qti.hardware.iop@2.0.so
-
 # IPA
 vendor/bin/ipacm
 vendor/etc/init/ipa_fws.rc
@@ -748,6 +734,14 @@ vendor/lib64/librs_adreno_sha1.so|d5fd0c0688ab454da7cdd787a9f97338a3e53bc9
 # Graphics (Vulkan) - from blueline - QP1A.191005.007
 vendor/lib/hw/vulkan.sdm845.so|f43ce630bb57dd2306b8ea0ea817291990e0eb3d
 vendor/lib64/hw/vulkan.sdm845.so|e2e388bcf490dc32bf1b13751b040b21d8af3cc6
+
+# IO prefetcher
+lib64/vendor.qti.hardware.iop@2.0.so
+lib64/vendor.qti.hardware.iop@1.0.so
+lib/vendor.qti.hardware.iop@2.0.so
+lib/vendor.qti.hardware.iop@1.0.so
+vendor/lib64/vendor.qti.hardware.iop@1.0.so
+vendor/lib/vendor.qti.hardware.iop@1.0.so
 
 # Media C2 - from blueline - QP1A.191005.007
 vendor/bin/hw/vendor.qti.media.c2@1.0-service|5f500c8fb5b9d1f2a0d5b29f90388382b12eb667
