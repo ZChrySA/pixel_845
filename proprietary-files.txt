@@ -721,6 +721,9 @@ vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
 vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
 vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
 
+# msm_irqbalance
+vendor/bin/msm_irqbalance
+
 # Neural network
 vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
 vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
