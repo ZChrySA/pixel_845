@@ -638,20 +638,6 @@ vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 vendor/lib/libtime_genoff.so
 
-# Trusted Execution Environment connector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
-
 # Trusted User Interface
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
@@ -808,6 +794,24 @@ vendor/lib64/libOmxAmrwbplusDec.so|9532fb9d50f39788608b36cd2c4978eedd583ca3
 vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
 vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
 vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
+
+# Trusted Execution Environment connector - from blueline - QQ3A.200805.001
+lib/libGPTEE_system.so
+lib/libQTEEConnector_system.so
+lib/libGPQTEEC_system.so
+lib64/libGPTEE_system.so
+lib64/libQTEEConnector_system.so
+lib64/libGPQTEEC_system.so
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/libGPQTEEC_vendor.so
+vendor/lib64/libGPTEE_vendor.so
+vendor/lib64/libQTEEConnector_vendor.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib/libGPQTEEC_vendor.so
+vendor/lib/libGPTEE_vendor.so
+vendor/lib/libQTEEConnector_vendor.so
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Wi-Fi Extension
 vendor/bin/hw/vendor.google.wifi_ext@1.0-service-vendor|a6692345e361e64f8a7882517f7d964b700e5896
