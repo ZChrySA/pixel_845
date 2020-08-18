@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+PRODUCT_HARDWARE := qcom
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
@@ -346,11 +348,20 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Thermal
+# Thermal HAL
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service \
-    thermal.sdm845
+    android.hardware.thermal@2.0-service.pixel \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
+    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE)_evt.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_evt.json
+
+# thermal-engine
+PRODUCT_COPY_FILES += \
+    device/xiaomi/sdm845-common/thermal-engine-$(PRODUCT_HARDWARE)-novr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-novr-evt.conf \
+    device/xiaomi/sdm845-common/thermal-engine-$(PRODUCT_HARDWARE)-novr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-novr-prod.conf \
+    device/xiaomi/sdm845-common/thermal-engine-$(PRODUCT_HARDWARE)-vr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-vr-evt.conf \
+    device/xiaomi/sdm845-common/thermal-engine-$(PRODUCT_HARDWARE)-vr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-vr-prod.conf
 
 # USB
 PRODUCT_PACKAGES += \
