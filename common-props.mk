@@ -197,30 +197,34 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RCS and IMS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.rcs.supported=1 \
-    persist.vendor.ims.disableUserAgent=0 \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
-    persist.dbg.wfc_avail_ovr=1
+    persist.rcs.supported=1 \
+    persist.vendor.ims.disableUserAgent=0
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     persist.radio.multisim.config=dsds \
-    persist.sys.fflag.override.settings_network_and_internet_v2=true \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.RATE_ADAPT_ENABLE=1 \
+    persist.vendor.radio.ROTATION_ENABLE=1 \
+    persist.vendor.radio.VT_ENABLE=1 \
+    persist.vendor.radio.VT_HYBRID_ENABLE=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.flexmap_type=none \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.procedure_bytes=SKIP \
-    persist.vendor.radio.rat_on=combine \
-    persist.vendor.radio.redir_party_num=1 \
-    persist.vendor.radio.report_codec=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.videopause.mode=1 \
+    persist.vendor.radio.multisim_switch_support=true \
     persist.vendor.radio.sib16_support=1 \
+    persist.vendor.radio.data_con_rprt=true \
+    persist.vendor.radio.relay_oprt_change=1 \
+    persist.vendor.radio.no_wait_for_card=1 \
+    persist.vendor.radio.sap_silent_pin=1 \
     ril.subscription.types=NV,RUIM \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.com.android.dataroaming=true \
-    ro.telephony.default_network=10,10 \
+    ro.telephony.default_network=22,22 \
     telephony.lteOnCdmaDevice=1
 
 # SSR
