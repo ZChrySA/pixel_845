@@ -226,112 +226,123 @@ vendor/lib/mediadrm/libwvdrmengine.so
 vendor/bin/cnss-daemon|cc114651fdf7e1a66f759a55b8c575a1fdceb4b7
 vendor/lib64/libqmi_cci_xiaomi.so|944e9c2bed06e11c5b4e0fc910642180d8e782dd
 
+# Init scripts
+vendor/etc/init/qseecomd.rc
+
 #
 # from blueline
 #
 
-# Bluetooth - from blueline - QQ1A.200105.002
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b49707e8bac97a8c01f943c8e3bbaae106beaf87
+# Bluetooth - from blueline - RPB3.200720.005
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|574af678d5579091de29849f140a0151fd2f538b
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|349d3886705bb914e8c2f276487744438c3ca72a
-vendor/lib64/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|d28ce9f3c98e4a75d5ed271225099f8542ed6f3a
-vendor/lib64/btaudio_offload_if.so|3bd7d3f688d9a9e39ea90f339707a76ad740d14f
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|3ab07f2c1650e01b2b418b39e245e13562d470c9
+vendor/lib64/btaudio_offload_if.so|ea86060e868bbd12731576eaf1b7fccde7eca25e
 vendor/lib64/liba2dpoffload.so|bf2640a25221e977dbbe563469e2281bf57424b2
--vendor/lib64/libbtnv.so|7e2e24a9bc2ab09a84d6ac3e543af37f78df24ce
-vendor/lib64/libbthost_if.so|efc9763f25d635dcc82ddaa30b5261bbdd498a7e
-vendor/lib64/libbt-hidlclient.so|b366c96d844d4ee8f95f9253cb3ad5f89c011fbc
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|14b9f109f62e2655f229a516c2510179459bbf68
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|e8c72840ea700a686dcd87c79875bffdc020e87d
-vendor/lib/hw/android.hardware.bluetooth.a2dp@1.0-impl-qti.so|6b2c451916e4f40b5ce4ecf561b453fa01e2263e
-vendor/lib/btaudio_offload_if.so|7a3939acc856a8e2c1059c388610087c8cb4ea17
+vendor/lib64/libbluetooth_audio_session_qti.so|155de8211750484596107b6e0a206075c69b2027
+-vendor/lib64/libbtnv.so|086a227f793822ef3eed15aea21a207c68feb7a9
+vendor/lib64/libbt-hidlclient.so|36e6ba270c948d2cc04a686026f51afd2ff29712
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|2bdd8a3fdcbc04f120c5647f2b289c73a132fb6b
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|6bc11d40eed839c52704483728f0e87c4e0f5d6f
+vendor/lib64/vendor.qti.hardware.bluetooth_audio@2.0.so|3b5e25896de09413dbe591df3d2f3587451999f9
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|4717eca8e2320a57d2bcf7ce360b93d46c1c677a
+vendor/lib/btaudio_offload_if.so|17fa329a0d1aae2add3263b79174e8de7defb8ff
 vendor/lib/liba2dpoffload.so|73845e4e0bf779dc98a58b9a8675c2432827f4b7
--vendor/lib/libbtnv.so|4e49be2492c2a0582d11e52769e5fdb386fc50c9
-vendor/lib/libbthost_if.so|2cba411426f9c4f257beeb14a54ce734385c3ff5
-product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
-product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+vendor/lib/libbluetooth_audio_session_qti.so|409fe8e1e261e7b004e1df5851ea3ae9f13a4547
+-vendor/lib/libbtnv.so|dacdf129abd0be3d8d003e2749eafa539ad63395
+vendor/lib/vendor.qti.hardware.bluetooth_audio@2.0.so|b9b2d16a5646724969adc19ab2d59f712ed11116
+system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+system_ext/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so|716692e49aa5f42104991ec56ef54bae9d6abeab
+system_ext/lib/com.qualcomm.qti.bluetooth_audio@1.0.so|dffb3dbde66c531efc51b4932b3a5e68bb6d56ca
 
-# Display (HDR) - from blueline - QP1A.191005.007
-vendor/lib/libhdr_tm.so|9139883c2e8e95b63b685ef1d51ba98dbf33a78e
-vendor/lib64/libhdr_tm.so|f4830dd37499117c7c6874204a586f1d29bb4956
+# Display (HDR) - from blueline - RPB3.200720.005
+vendor/lib/libhdr_tm.so|edfa2140a462a9da647fcd9fffc742688dd37b1e
+vendor/lib64/libhdr_tm.so|bd82eb65a5f7905e7a3b7c3a8770a0df2b718068
 
-# Display (SDM) - from blueline - QP1A.191005.007
-vendor/lib/libqseed3.so|56037a595a82701b873da36e0db9456d0f600903
-vendor/lib/libsdedrm.so|16f98b1576a1d484ddbcc3efd1dcacdeb15a0d76
-vendor/lib/libsdm-color.so|30c0500f4f44b928bbe1b03740d759f106379760
-vendor/lib/libsdm-diag.so|c90f0f9bc70c5caabdcafd06347b732889263139
-vendor/lib/libsdm-disp-vndapis.so|52dcdedb5e4edf1c7d0c2d84e863fccf55700a81
-vendor/lib/libsdmextension.so|184aabcf95bf5a34ac3794220b025c1798332b85
-vendor/lib/libtinyxml2_1.so|20854971d8ff6f4a310f5df0caacd2416ebe6b8a
-vendor/lib64/libqseed3.so|8d21e03ba6d73744cafc1ee49ad48fa03be66f50
-vendor/lib64/libsdedrm.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
-vendor/lib64/libsdm-color.so|087bb4f2fe3c09c76574a5b8e88f472b19f5cc8a
-vendor/lib64/libsdm-diag.so|15ace9f7f2774e3b2df33a63d39693bb4fffbeec
-vendor/lib64/libsdm-disp-vndapis.so|fd142098094a99da3b8525712e06fd76577ff5ea
-vendor/lib64/libsdmextension.so|e9758acf25768a29af716f842eaf9b1caac02bdf
-vendor/lib64/libtinyxml2_1.so|492182cadae3dcce6f125313e682b4742390b19f
+# Display (SDM) - from blueline - RPB3.200720.005
+vendor/lib/libqseed3.so|d2766f857a1398681ebf72ec7e3039419ef25aa0
+vendor/lib/libsdedrm.so|da8ebaec4bad8f9a78ed8d99571dd6b3a955e689
+vendor/lib/libsdm-color.so|afafc9669fff5ad3f3f209a864385a85558f95c9
+vendor/lib/libsdm-diag.so|2aa3afb0e414749e12f5de5d6926f68fa5fdf8b6
+vendor/lib/libsdm-disp-vndapis.so|94c2a486375be9d682fdb504287c6fe96687ce04
+vendor/lib/libsdmextension.so|f3f58d84886a791202669ec862ba296c992ed97e
+vendor/lib/libtinyxml2_1.so|598eead690037c865914f20d82796a85b6a57882
+vendor/lib64/libqseed3.so|1dc643f5af88cf61332c18f0f63c914070c99a09
+vendor/lib64/libsdedrm.so|e5f8774b8bdcedd682191a77a1605c49d314403d
+vendor/lib64/libsdm-color.so|cfb5b45d4621b0910b3b6b5bbded87114e3f5dba
+vendor/lib64/libsdm-diag.so|f0cba352d83b4708bc825f6286eb033d4a135da2
+vendor/lib64/libsdm-disp-vndapis.so|67a03a77a681b7f99c148b157c6d39af5a01088e
+vendor/lib64/libsdmextension.so|cc150a2f5efd2065723e9c8394b7e0cc48e38047
+vendor/lib64/libtinyxml2_1.so|d8c6665ab449bda7ba5ff361dad7940d4c2ff1bc
 
-# Display postprocessing - from blueline - QP1A.191005.007
-vendor/bin/mm-pp-dpps|84a741c04ce09653e8712fcea50b009346a5fbc5
-vendor/lib/libdisp-aba.so|3418decf2cd962e5e2a244fa988cdeb35739574f
-vendor/lib/libdisplayqos.so|39e68fb4ced154b7073c1220d929479bb9ed1371
-vendor/lib/vendor.display.color@1.0.so|6b7557f5bf65be8c92481e46e9a81f4e95b5343a
-vendor/lib/vendor.display.color@1.1.so|04a96a4d2995d14a6bf70b8501f545b24ea8b171
-vendor/lib/vendor.display.color@1.2.so|ed9803c342e3931213d6bf89e8843bcf3b0a62f1
-vendor/lib/vendor.display.postproc@1.0.so|ca952cfc6eb8d17f957d50905eeef449d2744478
-vendor/lib64/libdisp-aba.so|5d3c286651fd715f5ee8c975027c21d28063834e
-vendor/lib64/libdisplayqos.so|4d1a8d40308ede98d28d3532f3e1137f3a86a224
-vendor/lib64/vendor.display.color@1.0.so|397f3492343489d65f992df44e3098cdc059a96d
-vendor/lib64/vendor.display.color@1.1.so|dc8f4722a6a7ab0b790e26e1b95553ae6960bac6
-vendor/lib64/vendor.display.color@1.2.so|1d4808a5ed3791e8ee0c5da34d0032a0dd5576ff
-vendor/lib64/vendor.display.postproc@1.0.so|a2bb1d20cbcc1f77909c5f0ca9b1b91a18704229
+# Display postprocessing - from blueline - RPB3.200720.005
+vendor/bin/mm-pp-dpps|68dd621c5444be170bd0ceeb71224144d2c6176e
+vendor/lib/libdisp-aba.so|2c1f9940ac94b15f43a39532dec21729fed19cee
+vendor/lib/libdisplayqos.so|64e8d42f52b7955a9f33f84816251ad1ca988423
+vendor/lib/vendor.display.color@1.0.so|ca7984cbff580b33d8794519f3b52084407b86b4
+vendor/lib/vendor.display.color@1.1.so|efa72d23419b9fec8cccc6abdb94653370e94f85
+vendor/lib/vendor.display.color@1.2.so|6952d02e5d0e10b6a564361164d661cccbd78bd9
+vendor/lib/vendor.display.postproc@1.0.so|c673d1d2f6c4f28b0d5659086d8e2fe898495379
+vendor/lib64/libdisp-aba.so|7c95fe3e974364805e388c2aadc7e1d9633d0a23
+vendor/lib64/libdisplayqos.so|c8323e65e53cb7542b5f2ae4434e8faaf7555f56
+vendor/lib64/vendor.display.color@1.0.so|8a03c6452f788838c123a620d7daa20e08c08964
+vendor/lib64/vendor.display.color@1.1.so|ceae89fb97451996c6863a66569955f71db47e26
+vendor/lib64/vendor.display.color@1.2.so|087f96a90c78b946deeb57accedb75f639b13cb5
+vendor/lib64/vendor.display.postproc@1.0.so|ddc9d88e5e5ad4388be450262a8d75601add979f
 
-# Display utils - from blueline - QP1A.191005.007
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|ec3690ac937be4e1a4cf37e1471fb2bcbe03787a
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|41d9192472e0e67bb6564dcd806af984afa89b24
+# Display utils - from blueline - RPB3.200720.005
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|f59444ac8bf7f78ca21911ba07e6a22ecbfc967b
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|540e8245de44ff044d6998b04b94bb33b179cc8e
 
-# DRM
-vendor/bin/qseecomd
-vendor/etc/init/qseecomd.rc
-vendor/lib64/libcpion.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libqisl.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/librpmb.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libspl.so
-vendor/lib64/libssd.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libtzdrmgenprov.so
-vendor/lib/libcppf.so
-vendor/lib/libdrmfs.so
-vendor/lib/libdrmtime.so
-vendor/lib/libGPreqcancel.so
-vendor/lib/libGPreqcancel_svc.so
-vendor/lib/libqisl.so
-vendor/lib/libQSEEComAPI.so
-vendor/lib/librpmb.so
-vendor/lib/libSecureUILib.so
-vendor/lib/libsecureui.so
-vendor/lib/libsecureui_svcsock.so
-vendor/lib/libspl.so
-vendor/lib/libssd.so
-vendor/lib/libStDrvInt.so
-vendor/lib/libtzdrmgenprov.so
+# DRM - from blueline - RPB3.200720.005
+vendor/bin/qseecomd|10a7c17a91f7778b2725e1981cf4c588cfbbeff3
+vendor/lib64/libcpion.so|4e271f71cd1b30bd95ca5ee34908698da64fba84
+vendor/lib64/libdrmfs.so|5b4da5616f847a345f67e35a2cf2151075878800
+vendor/lib64/libdrmtime.so|4936082a4058405ba58203584a82aedad74ad686
+vendor/lib64/libGPreqcancel.so|137dfd615803ba0708ef99dbb43eaa800bf0543a
+vendor/lib64/libGPreqcancel_svc.so|830e83e0e770f1360a53ff5f4f8d095279ccdf5f
+vendor/lib64/libqisl.so|1498a699e534b99a43739e7ceb0f0ee607b226e4
+vendor/lib64/libQSEEComAPI.so|8d35f4e7d86930efd4ae52379ef543b9d8ae9366
+vendor/lib64/librpmb.so|b3cea3ddf3fa48fd7aec96da45dedd1f7d349083
+vendor/lib64/libSecureUILib.so|e67542bb40e7ece2d2a5e76566081b44c062c248
+vendor/lib64/libsecureui.so|865060785d01e68d58ebf73c9205dca4810bd8ef
+vendor/lib64/libsecureui_svcsock.so|6fb5e2fea9acc956133983fc2713536b784cdddc
+vendor/lib64/libspl.so|6406f38ac3d42c4b0fe865376f4b562ef6e98d3e
+vendor/lib64/libssd.so|5948addc30dc532d75dd2086f6bf8a2c1249bfb5
+vendor/lib64/libStDrvInt.so|f57d611db5262807da1917be409e45c349a3bb18
+vendor/lib64/libtzdrmgenprov.so|ab3dde5b2a98e7c2d1f67497c893c1b1bcd754a3
+vendor/lib/libcppf.so|ca02751a0e473c57821277eff7bb96fa63832491
+vendor/lib/libdrmfs.so|2d9aa570d15c4cc6b40d097636fbcdec286d93e8
+vendor/lib/libdrmtime.so|2764096c38b8fc6d3ecfdc2bb5ba7b65b7d2864a
+vendor/lib/libGPreqcancel.so|9a202ffe4c3b3813c1c856828e3e3f457479f3c2
+vendor/lib/libGPreqcancel_svc.so|5e283f2e7b44750e447e85bd60ec02c6e75f5879
+vendor/lib/libqisl.so|6546b816d6c0854429b9ec73d7a082a08f99713f
+vendor/lib/libQSEEComAPI.so|71d6837d32d15885a5ec0a2ffedbca91e3e83aad
+vendor/lib/librpmb.so|f84c9f88ac26fd11f2472a67a6338d15eafb59b3
+vendor/lib/libSecureUILib.so|d3ece39de060369a13880ef150e8deabccd5a174
+vendor/lib/libsecureui.so|18d3081a66c83583ebb573d2f19c43ba320a189a
+vendor/lib/libsecureui_svcsock.so|b88b35b7c2f2406597a3039a70c182cc2714d393
+vendor/lib/libspl.so|c3abb796278e2b0b653ae5958a0a61d37935486d
+vendor/lib/libssd.so|958e654dba8b262934c9f3fc23f9b4c444fc402c
+vendor/lib/libStDrvInt.so|7e9d4702708149edfdf08c5272e2377d588779b1
+vendor/lib/libtzdrmgenprov.so|f6ffe9ce091fcfa77a7fee76022960ec1aca5c03
 
-# ESE
-vendor/lib/vendor.qti.esepowermanager@1.0.so
-vendor/lib64/vendor.qti.esepowermanager@1.0.so
+# ESE - from blueline - RPB3.200720.005
+vendor/bin/hw/vendor.qti.esepowermanager@1.0-service|7bc9e130992f7ca659fc796128e09ca212da69fc
+vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc|58a3866ad5a7613d9392c9adb671eaa7825578a2
+vendor/lib/hw/vendor.qti.esepowermanager@1.0-impl.so|c2203e54842044d1140747eefb5d81d33b9ec8f7
+vendor/lib/vendor.qti.esepowermanager@1.0.so|8361159fdaf19707af1802d7e7f7e7927c715769
+vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so|16f26778035e12c2e7e594d59bc030c8795b52d3
+vendor/lib64/vendor.qti.esepowermanager@1.0.so|59cc795015d117435d3923606907bbfd77329c4c
+system_ext/lib64/vendor.qti.esepowermanager@1.0.so|8401115a9beff8f169d7da5aa54986fcbb028e94
+system_ext/lib/vendor.qti.esepowermanager@1.0.so|bbd2d02f520d1de0a1f499952d994dfb04ce41f3
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+# Gatekeeper - from blueline - RPB3.200720.005
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|7443f634c1b9d776944f5db3ccd4d73a2e15f518
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|1b8d5f58fe0a57906acf72b862c16a2521daa97b
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so|467e460b6a702e3685184c8f081dd3a5ecb73088
+vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so|3e2f26452dce7b8e0ddaecdca85a4a9e4892c27c
 
 # Graphics (Adreno) - from blueline - QP1A.191005.007
 vendor/lib/egl/eglSubDriverAndroid.so|0c11f1a3f664788a2d14fc1453cd817259d0c8dd
@@ -379,114 +390,114 @@ vendor/lib64/librs_adreno_sha1.so|d5fd0c0688ab454da7cdd787a9f97338a3e53bc9
 vendor/lib/hw/vulkan.sdm845.so|f43ce630bb57dd2306b8ea0ea817291990e0eb3d
 vendor/lib64/hw/vulkan.sdm845.so|e2e388bcf490dc32bf1b13751b040b21d8af3cc6
 
-# IO prefetcher
-lib64/vendor.qti.hardware.iop@2.0.so
-lib64/vendor.qti.hardware.iop@1.0.so
-lib/vendor.qti.hardware.iop@2.0.so
-lib/vendor.qti.hardware.iop@1.0.so
-vendor/lib64/vendor.qti.hardware.iop@1.0.so
-vendor/lib/vendor.qti.hardware.iop@1.0.so
+# IO prefetcher - from blueline - RPB3.200720.005
+vendor/lib64/vendor.qti.hardware.iop@1.0.so|8b5070df79980bb97997d923fb47aaaf4f08a881
+vendor/lib/vendor.qti.hardware.iop@1.0.so|06c89b43ab4d7524a512d26e56a4ffbd2c7d7bd6
+system_ext/lib64/vendor.qti.hardware.iop@2.0.so|ddd7d7199197246a7d51cb56a4d1e60d30625ec3
+system_ext/lib64/vendor.qti.hardware.iop@1.0.so|05df34e7b154c44ed0163fdef14ec85bf07364f7
+system_ext/lib/vendor.qti.hardware.iop@2.0.so|0590503313b834ff8c93a04a0e98cd104e6e28d0
+system_ext/lib/vendor.qti.hardware.iop@1.0.so|5b30113bcb3db86d6eb4896b1c5940a055a68fd0
 
-# Media C2 - from blueline - QP1A.191005.007
-vendor/bin/hw/vendor.qti.media.c2@1.0-service|5f500c8fb5b9d1f2a0d5b29f90388382b12eb667
+# Media C2 - from blueline - RPB3.200720.005
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|c2c578a114ccb404def4bbd7ce159619235c8b9f
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
-vendor/lib/libqcodec2.so|76bff930e0a74df18e824229bb847ff04cd27b38
-vendor/lib64/libqcodec2.so|acbe155c5ccb5b7b1fc872923342c67d3500f232
+vendor/lib/libqcodec2.so|839d6feb2a908928c800b57fe634eecdc8c12bfd
+vendor/lib64/libqcodec2.so|1d4a496408ce0b895b84cb27709a544b8b22898b
 
-# Media - from blueline - QP1A.191005.007
-vendor/lib/libOmxDsdDec.so|871a93aa998308e6e5c26ffd9763cccb583012fd
-vendor/lib/libdsd2pcm.so|e00f949f1dbd97f736eae4cfe0e9669b947831b2
-vendor/lib/libswvdec.so|62b201f5b152d2f66fa1340a9f7456b394b69a96
-vendor/lib64/libswvdec.so|0631bf25126ddc9e7940a3be1d1cd68cfacfa52c
+# Media - from blueline - RPB3.200720.005
+vendor/lib/libOmxDsdDec.so|b2038a46a12e4b1dd74e3d62504d35e00776869d
+vendor/lib/libdsd2pcm.so|f27975f0af374bd12b25b623306056094e167b77
+vendor/lib/libswvdec.so|f860e8a6191d1eaa40f345ac96ee1c36c8c357e4
+vendor/lib64/libswvdec.so|7d365ed8e51925e6efab7957b899b41f44deb57c
 
-# Media codecs - from blueline - QP1A.191005.007
-vendor/lib/libAlacSwDec.so|92ee6aa78c6874f66ab92ba384e009098d9ba504
-vendor/lib/libApeSwDec.so|6fea8d930a6884c267065931e3559b97789f9149
-vendor/lib/libFlacSwDec.so|f3c6fc2753298af4dd7499b8046f339bb92b581a
-vendor/lib/libMpeg4SwEncoder.so|d8b728daf8a5dc34862b564b0ea7d0582f2787eb
-vendor/lib/libOmxAlacDecSw.so|8a9904551fe09065ed17e816fd3b10fbcd82e849
-vendor/lib/libOmxAmrwbplusDec.so|698358712212330f24563a7b2b94c5d169badd69
-vendor/lib/libOmxApeDecSw.so|be77db0acb002d46c0c6464fa933e9908f303987
-vendor/lib/libOmxEvrcDec.so|da60effe36ca3876adaf5dca3a6a6086a024ed19
-vendor/lib/libOmxQcelp13Dec.so|a2e2e820577d160a37cd66cb266e2143fbcbc049
-vendor/lib64/libAlacSwDec.so|916c6e450925a935bde3f5e01076551d7d9b325e
-vendor/lib64/libApeSwDec.so|3588f171f1775ef07d87e4b0d007e22d95fa81b7
-vendor/lib64/libFlacSwDec.so|551c18199e23861b2389de9148a2dc254e355580
-vendor/lib64/libMpeg4SwEncoder.so|97adc8adb1952e76a57bc9f6c2ba2d104345524a
-vendor/lib64/libOmxAlacDecSw.so|d907f76b100d92477fd378d2860418653df758e2
-vendor/lib64/libOmxAmrwbplusDec.so|9532fb9d50f39788608b36cd2c4978eedd583ca3
-vendor/lib64/libOmxApeDecSw.so|8e7933a92f46f660ddb492fbb0b25b2387525738
-vendor/lib64/libOmxEvrcDec.so|78a1ba7711f4307052d26441e8fa978c84c0fc42
-vendor/lib64/libOmxQcelp13Dec.so|2a1e45e912bc83666eaef2d750922c322dadbcb2
+# Media codecs - from blueline - RPB3.200720.005
+vendor/lib/libAlacSwDec.so|0a1071dd2cad2f287cf1c519c1a848022faaf949
+vendor/lib/libApeSwDec.so|f174d7de8ff2314e2a9c5af9dbf2dba43a63c88a
+vendor/lib/libFlacSwDec.so|c7655f864480844ce1177e4d6422395fc2321a12
+vendor/lib/libMpeg4SwEncoder.so|97ca3c1a2f9ed0fcbda232e5f498e5b90dc5dc41
+vendor/lib/libOmxAlacDecSw.so|4cc692c3afe44dc3b04f9c71eb5c22705fc3949b
+vendor/lib/libOmxAmrwbplusDec.so|59ea9442d516959328eec2228a8cae86bc75a775
+vendor/lib/libOmxApeDecSw.so|4a7f1d6fed1ba938ab4eecca73fef79a77325ecd
+vendor/lib/libOmxEvrcDec.so|89ec8c1c0751585327d4031f363a3c3502753bec
+vendor/lib/libOmxQcelp13Dec.so|c53bab151ee23e533e04fb03ebbe54036309d582
+vendor/lib64/libAlacSwDec.so|031c0237baa24701e1efa9d101ce7f6048c52af7
+vendor/lib64/libApeSwDec.so|9dc8b72e2060432cbd5eadb9cc99883133c6de14
+vendor/lib64/libFlacSwDec.so|c8dd86d0d9a53c2432684ea2063158cbcd034da3
+vendor/lib64/libMpeg4SwEncoder.so|375e8b36a835f2084e54092b7d6d88723f57d547
+vendor/lib64/libOmxAlacDecSw.so|63cfa6bc84545ac923a3465b2d483469579f03f9
+vendor/lib64/libOmxAmrwbplusDec.so|3591e9b5489d9bc3f4f2fb5c129742505c878f1d
+vendor/lib64/libOmxApeDecSw.so|e7ae7862202cd0a7cd7c7e08ea66a3b59482ef6d
+vendor/lib64/libOmxEvrcDec.so|81aee072cdab671884614df822e69d1a91322b0e
+vendor/lib64/libOmxQcelp13Dec.so|72ab24a25d41bd4cb87da19625d960372f97634
 
-# msm_irqbalance
-vendor/bin/msm_irqbalance
+# msm_irqbalance - from blueline - RPB3.200720.005
+vendor/bin/msm_irqbalance|c6f74fe22feadf4995e408253fe9a2323a63d83b
 
-# Neural network
-vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
-vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
-vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
-vendor/lib64/libhexagon_nn_stub.so
-vendor/lib64/unnhal-acc-adreno.so
-vendor/lib64/unnhal-acc-common.so
-vendor/lib64/unnhal-acc-hvx.so
+# Neural network - from blueline - RPB3.200720.005
+vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti|3cf4eeaf5b377118aabafa4b82ebe5169bbae7be
+vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc|4b7f2c5f914f3eef38f19936c0a06efc09b5b28c
+vendor/lib/rfsa/adsp/libhexagon_nn_skel.so|ee2d3ba23edda2be09179922cdfe40ed1ef87f8f
+vendor/lib64/libhexagon_nn_stub.so|9e603bbc335e06433178ae655e358cbffd57cfed
+vendor/lib64/unnhal-acc-adreno.so|abd985c33b1dde67d002b8dd4bcfb62fb1859cb3
+vendor/lib64/unnhal-acc-common.so|ddcc4f598b1f72747f6481a4358faf12c7ed7ace
+vendor/lib64/unnhal-acc-hvx.so|af2693f30872b96d91a6dc8ddb4882a26c6759ff
 
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib/libperipheral_client.so
-vendor/lib/libspcom.so
-vendor/lib64/libperipheral_client.so
-vendor/lib64/libspcom.so
+# Peripheral manager - from blueline - RPB3.200720.005
+vendor/bin/pm-proxy|3d9dc57fed8930f04a70747181c07a49930d1d31
+vendor/bin/pm-service|2e8e2212f96e014163b8adab371246a86f72d540
+vendor/lib/libperipheral_client.so|0a77cc0b2787e3cd525b8920105f72f810cef15b
+vendor/lib/libspcom.so|98880fa3b7b6cf32a0bfbcc364597ddb98747ee6
+vendor/lib64/libperipheral_client.so|ac076dc703d4c605f9024b7e84e4dd104fe2710b
+vendor/lib64/libspcom.so|227b37fc0e7a8defc4b9640f7fee578646ca62d0
 
-# Power-off alarm
-lib64/vendor.qti.hardware.alarm@1.0.so
-framework/vendor.qti.hardware.alarm-V1.0-java.jar
-lib/vendor.qti.hardware.alarm@1.0.so
+# Power-off alarm - from blueline - RPB3.200720.005
+system_ext/lib64/vendor.qti.hardware.alarm@1.0.so|915731153472b78c8c6816c3c007de51a23f97fe
+-system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar|945c7d7292ed2cb551ca1c051b4543dc074d201a
+system_ext/lib/vendor.qti.hardware.alarm@1.0.so|b6f5c4ad872a388f56ef4fc16d2bcc45a61fa1a6
 
-# Soter
--framework/vendor.qti.hardware.soter-V1.0-java.jar
-lib64/vendor.qti.hardware.soter@1.0.so
-lib/vendor.qti.hardware.soter@1.0.so
-vendor/bin/hw/vendor.qti.hardware.soter@1.0-service-provision
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
+# Soter - from blueline - RPB3.200720.005
+-system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar|ad0292b9fd70b8d4d5c5c0cfc4c73f2458d96e9e
+system_ext/lib64/vendor.qti.hardware.soter@1.0.so|5a17b0aa22822aa83a6b48061268b08261a22144
+system_ext/lib/vendor.qti.hardware.soter@1.0.so|1e93ba5503cb0a87e33ac6eec9d47e02f5f47bd8
+vendor/bin/vendor.qti.hardware.soter@1.0-provision|ed0b21a135f8a454fa7869ac15371dc8b3934be4
+vendor/lib64/vendor.qti.hardware.soter@1.0.so|74a49c679fe812c17900ccb7872f9d5b470767b4
+vendor/lib64/vendor.qti.hardware.soter@1.0.so|74a49c679fe812c17900ccb7872f9d5b470767b4
 
-# Thermal engine
-vendor/bin/thermal-engine
-vendor/lib64/libthermalclient.so
-vendor/lib/libthermalclient.so
+# Thermal engine - from blueline - RPB3.200720.005
+vendor/bin/thermal-engine|a7b2f59e649a964d4163df1e913a4aac6a5e7428
+vendor/lib64/libthermalclient.so|698d10e9af1489b24d8d65318e141a99de3f2e12
+vendor/lib/libthermalclient.so|984a40b53fc659ee3c99044ce0b42bcb69ad079a
 
-# Trusted Execution Environment connector - from blueline - QQ3A.200805.001
-lib/libGPTEE_system.so
-lib/libQTEEConnector_system.so
-lib/libGPQTEEC_system.so
-lib64/libGPTEE_system.so
-lib64/libQTEEConnector_system.so
-lib64/libGPQTEEC_system.so
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
+# Trusted Execution Environment connector - from blueline - RPB3.200720.005
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|ee86b71750b2c89365dded2e0affe218e494dcd7
+vendor/lib64/libGPQTEEC_vendor.so|6d7897e9dce7f7dae9599b048fc504ad90c1ead1
+vendor/lib64/libGPTEE_vendor.so|4a2a44597e8ab0064be862207845217e3e0783e7
+vendor/lib64/libQTEEConnector_vendor.so|a95d140bd9fa54aadad2908358baec2b8e4b0a07
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|f38ad0fdeb59a714cf690e9dcee827295a1579c7
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|375a6e7617964d323675b4c71289c151111ca06e
+vendor/lib/libGPQTEEC_vendor.so|efa20f95c8fda470ad5e98b43c421c2a22a330b1
+vendor/lib/libGPTEE_vendor.so|794cee35a9e9cf963ef2ce2a189313df05103be6
+vendor/lib/libQTEEConnector_vendor.so|6e272d9ed3f09c2e81e269c8c942f22718d75e74
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so|7f88705bedcc7b18d404e48e7efd7d951503522d
+system_ext/lib64/vendor.qti.hardware.qteeconnector@1.0.so|092e0186b98e41bbeb0512339829825e76e0d72d
+system_ext/lib/vendor.qti.hardware.qteeconnector@1.0.so|888c1c2ea79bca4cbb98db403d124d4eba313d4f
 
-# Trusted User Interface
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
-vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
-vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
-lib64/vendor.qti.hardware.tui_comm@1.0.so
-lib/vendor.qti.hardware.tui_comm@1.0.so
+# Trusted User Interface - from blueline - RPB3.200720.005
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|e51a885db2b075c33b86d89125bda6363c0cb85c
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|3246c40e175fadbe84d621bd15fbb86d32114a2e
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|766f29bc07f6fceba84222442e6b8a8b5384f51e
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|516c7a9ffbb903affcc635ceeebb82f94dc22edb
+system_ext/lib64/vendor.qti.hardware.tui_comm@1.0.so|98bb92fbf3af288234e55069ce591bf0d4650d94
+system_ext/lib/vendor.qti.hardware.tui_comm@1.0.so|9d25f4e1264fbde2050525bad775b4837e4b80a2
 
-# Wi-Fi Extension
-vendor/bin/hw/vendor.google.wifi_ext@1.0-service-vendor|a6692345e361e64f8a7882517f7d964b700e5896
+# Wi-Fi Extension - from blueline - RPB3.200720.005
+
+vendor/bin/hw/vendor.google.wifi_ext@1.0-service-vendor|4967fb6371a3888fa41eaa94191d385815c6bdd9
 vendor/etc/init/vendor.google.wifi_ext@1.0-service.rc|4c85d466367142c038464bcec503c511cc53d082
-vendor/lib64/vendor.google.wifi_ext@1.0.so|69211ba1e8d6d4269ec22ee4171dfea4c36b9791
+vendor/lib64/vendor.google.wifi_ext@1.0.so|96ad4219c38e9b81874d2abbaf3418be9660c52b
+vendor/lib64/vendor.google.wifi_ext@1.1.so|fd7dab929fb063b29eab047ebc5988205193f93a
+system_ext/lib64/vendor.google.wifi_ext@1.0.so|dc1b6c2871624128648484bcfc877e822e79981d
+system_ext/lib/vendor.google.wifi_ext@1.0.so|cfc5b29ea17c520d6baa71dab9393ffe36667f27
 
 # flame blobs
 
