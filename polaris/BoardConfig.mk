@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The Android Open-Source Project
+# Copyright (C) 2018-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +15,23 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/aosp_dipper.mk \
-    $(LOCAL_DIR)/aosp_polaris.mk
+LOCAL_PATH := device/xiaomi/dipper/polaris
 
-COMMON_LUNCH_CHOICES += \
-    aosp_dipper-userdebug \
-    aosp_polaris-userdebug
+# Display
+BOARD_PANEL_MAX_BRIGHTNESS := 4095
+TARGET_USES_DRM_PP := true
+
+# Partitions
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/../fstab.dipper
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/polaris-radio
+
+# Inherit from the proprietary version
+-include vendor/xiaomi/polaris/BoardConfigVendor.mk
+
+# Inherit from common
+include device/xiaomi/dipper/BoardConfig-common.mk
