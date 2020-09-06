@@ -1,1 +1,0 @@
-add_hwservice(hal_nfc_default, nxpnfc_hwservice)

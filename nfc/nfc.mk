@@ -31,6 +31,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default \
     ro.se.type=eSE,HCE,UICC
-
-BOARD_SEPOLICY_DIRS += \
-    $(LOCAL_PATH)/nfc/sepolicy/vendor

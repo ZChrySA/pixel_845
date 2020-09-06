@@ -1,2 +1,0 @@
-binder_call(rild, qtidataservices_app)
-diag_use(rild)
