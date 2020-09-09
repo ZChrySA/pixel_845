@@ -459,12 +459,6 @@ on post-fs-data
     # Default enable uicc_se
     setprop persist.vendor.radio.uicc_se_enabled true
 
-service init-radio-sh /vendor/bin/init.radio.sh
-    class late_start
-    user radio
-    group root radio
-    oneshot
-
     # Create dir for TUI
     mkdir /data/vendor/tui 0700 system system
 
