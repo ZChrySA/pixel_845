@@ -415,3 +415,8 @@ PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/dipper/$(PRODUCT_PLATFORM)/kernel
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 include hardware/google/pixel/thermal/device.mk
+
+# OTA
+PRODUCT_HOST_PACKAGES += \
+    avbtool \
+    brotli
