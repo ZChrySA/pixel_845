@@ -921,3 +921,9 @@ vendor/radio/qcril_database/upgrade/10_add_more_fr_ecc.sql|c0efcd93e6bbedb56c18f
 vendor/radio/qcril_database/upgrade/11_remove_fr_orange.sql|ab2390085d7f6d57ddc77375e4583fabe001b0b8
 vendor/radio/qcril_database/upgrade/12_israel_normal_ecc.sql|0e4d25577b01d108de634bdb8aeeeb3623237505
 vendor/radio/qcril_database/upgrade/13_version_update_ecc_table.sql|e72789280cdf1de23b6bf97e879c20a5087ea32a
+
+# Protobuf
+vendor/lib/libprotobuf-cpp-full.so
+vendor/lib/libprotobuf-cpp-lite.so
+vendor/lib64/libprotobuf-cpp-full.so
+vendor/lib64/libprotobuf-cpp-lite.so
