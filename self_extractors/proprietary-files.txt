@@ -334,16 +334,6 @@ vendor/lib/libssd.so|958e654dba8b262934c9f3fc23f9b4c444fc402c
 vendor/lib/libStDrvInt.so|7e9d4702708149edfdf08c5272e2377d588779b1
 vendor/lib/libtzdrmgenprov.so|f6ffe9ce091fcfa77a7fee76022960ec1aca5c03
 
-# ESE - from blueline - RPB3.200720.005
-vendor/bin/hw/vendor.qti.esepowermanager@1.0-service|7bc9e130992f7ca659fc796128e09ca212da69fc
-vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc|58a3866ad5a7613d9392c9adb671eaa7825578a2
-vendor/lib/hw/vendor.qti.esepowermanager@1.0-impl.so|c2203e54842044d1140747eefb5d81d33b9ec8f7
-vendor/lib/vendor.qti.esepowermanager@1.0.so|8361159fdaf19707af1802d7e7f7e7927c715769
-vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so|16f26778035e12c2e7e594d59bc030c8795b52d3
-vendor/lib64/vendor.qti.esepowermanager@1.0.so|59cc795015d117435d3923606907bbfd77329c4c
-system_ext/lib64/vendor.qti.esepowermanager@1.0.so|8401115a9beff8f169d7da5aa54986fcbb028e94
-system_ext/lib/vendor.qti.esepowermanager@1.0.so|bbd2d02f520d1de0a1f499952d994dfb04ce41f3
-
 # Gatekeeper - from blueline - RPB3.200720.005
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|7443f634c1b9d776944f5db3ccd4d73a2e15f518
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|1b8d5f58fe0a57906acf72b862c16a2521daa97b
