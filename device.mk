@@ -98,6 +98,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
+    libavservices_minijail_vendor \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
