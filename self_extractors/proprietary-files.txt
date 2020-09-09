@@ -211,7 +211,7 @@ vendor/bin/subsystem_ramdump
 # Time services
 -vendor/app/TimeService/TimeService.apk;PRESIGNED
 vendor/bin/time_daemon
-vendor/etc/init.time_daemon.rc
+vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 vendor/lib/libtime_genoff.so
 
@@ -563,6 +563,8 @@ vendor/lib64/libwms.so|08eb6d00d158cb2f154f57a5e57295454a16a0ac
 vendor/lib64/libwqe.so|6b1c28f6b13c121dd3dd3ad7f7c4c82b40620578
 vendor/lib64/libxml.so|56ef3fb05891fa582eee997c8f74416860320327
 vendor/lib64/vendor.qti.data.factory@2.0.so|af50104756e30698823e36036ede8eb14e9fcf3c
+vendor/lib64/vendor.qti.data.factory@2.1.so|LATER
+vendor/lib64/vendor.qti.data.slm@1.0.so|LATER
 vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so|f2364a460e04a69738c686fa771d4e91cf01c905
 vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so|f969265737efc12d6abbaba972a08092898edf04
 vendor/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so|751a8071ea229b3f74bced0252dc01b5fb5ab34c
@@ -581,6 +583,8 @@ vendor/lib/libwms.so|cf4bb301f3e377f405eb9880c2b8ba7b2a7b5e2e
 vendor/lib/libwqe.so|459e083c37a5ae8b0bcac0d32a0fbf472308a91c
 vendor/lib/libxml.so|ad35fa92a4a3bd97b9d10de14e75a9c3cee0199f
 vendor/lib/vendor.qti.data.factory@2.0.so|9f0133e5857e35d5b07292aa7637e9875e3a229d
+vendor/lib/vendor.qti.data.factory@2.1.so|LATER
+vendor/lib/vendor.qti.data.slm@1.0.so|LATER
 vendor/lib/vendor.qti.hardware.data.cne.internal.api@1.0.so|ac19084abed592442803e5b1c689091a0dee5568
 vendor/lib/vendor.qti.hardware.data.cne.internal.constants@1.0.so|b72f3b30820355c7d06abe5720b4cd5fd917daad
 vendor/lib/vendor.qti.hardware.data.cne.internal.server@1.0.so|f4a1f7e0e03c272a35eb7538e6bb4bdf9c044150
@@ -849,6 +853,7 @@ vendor/lib/libpdnotifier.so|21c22d995896d424298748f34b16f1d6d94f15ce
 vendor/lib/libqcrilFramework.so|bce6cdd04f26f3ad3f6da6f971e61483056fea8c
 vendor/lib/libqrtr.so|10584a6ae08a5a5bb53f1616640c84f4d6ddd632
 vendor/lib/libqsocket.so|9d5fa1fe8be6bfdcb4ee35cf99491ed6c54c0cb2
+vendor/lib/libril-qc-logger.so|LATER
 vendor/lib/libril-qc-ltedirectdisc.so|af892d10e39d7f717a433d5d218dc146fc68743e
 vendor/lib/libril-qc-radioconfig.so|c1d5d3a312d855834098b09df9154178bad59875
 vendor/lib/libril-qcril-hook-oem.so|e3ea6038dde3498fe5bafee4d577ae5d926324d9
@@ -857,6 +862,7 @@ vendor/lib/libsettings.so|53e78354c79b9f005a776d4006d03d80aa527596
 vendor/lib/libsystem_health_mon.so|c6cc12e0212475d7dfb5b30817a1e302b8722162
 vendor/lib/qcrild_librilutils.so|b58749b55ee04c86fa6c675e0f557ca4812be9c8
 vendor/lib/qtimutex.so|78ba2ae981783ed143d743dff9872c6af81ba836
+vendor/lib/vendor.qti.hardware.bt_channel_avoidance@1.0.so|LATER
 vendor/lib/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 vendor/lib/vendor.google.radioext@1.1.so|fbb107b37849c220cb80188347efb80af829a52f
 vendor/lib/vendor.google.radioext@1.0.so|325ae943d12d50189f79dec5a4235d2264050865
@@ -876,6 +882,7 @@ vendor/lib64/libqcrilFramework.so|9c3121ecf5e7f00c8e66a5a4d951d9c446b4107a
 vendor/lib64/libqrtr.so|53a82053456e2a2c70c4d15113a9f2b4b22d0f87
 vendor/lib64/libqsocket.so|89d2ec494829fd1c74267dd06eeb6636e4148f2c
 vendor/lib64/libril-qc-hal-qmi.so|dd451af2d6107926ad48db3b93dde013e1635341
+vendor/lib64/libril-qc-logger.so|LATER
 vendor/lib64/libril-qc-ltedirectdisc.so|bd2be47ef9fcf1dda2e724ca574a1a0846a992ae
 vendor/lib64/libril-qc-radioconfig.so|55384c31cb067fa41c386ce1255cd8b788bf274b
 vendor/lib64/libril-qcril-hook-oem.so|4b4b211f129ff625fdd88c8f6bdcf7c4a708aabb
@@ -888,6 +895,7 @@ vendor/lib64/qtimutex.so|e2febe8ae1f5c9025586f8e65d6e784f7b8fbe0b
 vendor/lib64/vendor.google.radioext@1.0.so|060b6bd09d3028cdea2d4050edb0dac2587f0537
 vendor/lib64/vendor.google.radioext@1.1.so|4a26b3d6938075e2415c161d977da6e3998ea2cb
 vendor/lib64/vendor.google.radioext@1.2.so|39c637fd6d0f6fdd1a7a1747b54077c3a7479eca
+vendor/lib64/vendor.qti.hardware.bt_channel_avoidance@1.0.so|LATER
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so|78282b56a4e0a6690ba1333558a79e14bb15f37d
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so|43db8a7b6da17c9517c76ed4d8c2f24b2729b7ab
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
