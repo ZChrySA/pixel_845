@@ -17,9 +17,11 @@
 PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/aosp_beryllium.mk \
     $(LOCAL_DIR)/aosp_dipper.mk \
-    $(LOCAL_DIR)/aosp_polaris.mk
+    $(LOCAL_DIR)/aosp_polaris.mk \
+    $(LOCAL_DIR)/gms_dipper.mk
 
 COMMON_LUNCH_CHOICES += \
     aosp_beryllium-userdebug \
     aosp_dipper-userdebug \
-    aosp_polaris-userdebug
+    aosp_polaris-userdebug \
+    gms_dipper-user
