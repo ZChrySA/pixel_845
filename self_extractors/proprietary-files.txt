@@ -448,11 +448,11 @@ vendor/lib64/libspcom.so|227b37fc0e7a8defc4b9640f7fee578646ca62d0
 
 # Power-off alarm - from blueline - RPB3.200720.005
 system_ext/lib64/vendor.qti.hardware.alarm@1.0.so|915731153472b78c8c6816c3c007de51a23f97fe
--system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar|945c7d7292ed2cb551ca1c051b4543dc074d201a
+system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar|945c7d7292ed2cb551ca1c051b4543dc074d201a
 system_ext/lib/vendor.qti.hardware.alarm@1.0.so|b6f5c4ad872a388f56ef4fc16d2bcc45a61fa1a6
 
 # Soter - from blueline - RPB3.200720.005
--system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar|ad0292b9fd70b8d4d5c5c0cfc4c73f2458d96e9e
+system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar|ad0292b9fd70b8d4d5c5c0cfc4c73f2458d96e9e
 system_ext/lib64/vendor.qti.hardware.soter@1.0.so|5a17b0aa22822aa83a6b48061268b08261a22144
 system_ext/lib/vendor.qti.hardware.soter@1.0.so|1e93ba5503cb0a87e33ac6eec9d47e02f5f47bd8
 vendor/bin/vendor.qti.hardware.soter@1.0-provision|ed0b21a135f8a454fa7869ac15371dc8b3934be4
@@ -497,9 +497,9 @@ system_ext/lib/vendor.google.wifi_ext@1.0.so|cfc5b29ea17c520d6baa71dab9393ffe366
 # flame blobs
 
 # CNE - from flame - RPB3.200720.005
--system_ext/framework/vendor.qti.hardware.data.connection-V1.0-java.jar|e1a7664275fbd37b56dc5d0977ee9dde5857119e
--system_ext/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar|a33e2fcadf922fe345638936201f5dc92c4e2448
--system_ext/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar|68483dfc7968883f6e2400762dc2d832ed273842
+system_ext/framework/vendor.qti.hardware.data.connection-V1.0-java.jar|e1a7664275fbd37b56dc5d0977ee9dde5857119e
+system_ext/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar|a33e2fcadf922fe345638936201f5dc92c4e2448
+system_ext/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar|68483dfc7968883f6e2400762dc2d832ed273842
 system_ext/lib/com.quicinc.cne.api@1.0.so|f4e74ec8bd48908c46c5b39f4b7b7293c87d47f4
 system_ext/lib/com.quicinc.cne.api@1.1.so|7da8e40129ac29467aa3e1ea7eeed0b65b11637f
 system_ext/lib/com.quicinc.cne.constants@1.0.so|bbeae9f3b7041db553b9a90c4bc0f927cf9da7ac
@@ -585,11 +585,11 @@ vendor/lib/vendor.qti.hardware.data.qmi@1.0.so|4c47ff8ec4d24e5778e44e0ffd052f8e7
 vendor/lib/vendor.qti.latency@2.0.so|1a9dc2e0f4488f8bf8f5def7b1bef91fca043b15
 
 # IMS - from flame - RPB3.200720.005
--system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar|76d4482320e91d0f74b1f873b6d8fb1ee7448ccf
--system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar|1d6329d3043e125b084d0256880e3558dbd5cf0e
--system_ext/framework/vendor.qti.hardware.data.latency-V1.0-java.jar|8598fc0b5eb82d9b1cf2c1414e655b9a91ca34b3
--system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar|969252fb7884ee4502fd34c01196fb227054e129
--system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar|ffedcb5397a3614f04dfa10e75f0cba195b5f08f
+system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar|76d4482320e91d0f74b1f873b6d8fb1ee7448ccf
+system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar|1d6329d3043e125b084d0256880e3558dbd5cf0e
+system_ext/framework/vendor.qti.hardware.data.latency-V1.0-java.jar|8598fc0b5eb82d9b1cf2c1414e655b9a91ca34b3
+system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar|969252fb7884ee4502fd34c01196fb227054e129
+system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar|ffedcb5397a3614f04dfa10e75f0cba195b5f08f
 system_ext/lib/libdiag_system.so|a804c6679dbaba15da70e2603b5114c29a47ee8b
 system_ext/lib64/libdiag_system.so|e81cc808ca5cab3288384d46d19dfd941711b84f
 -system_ext/app/uceShimService/uceShimService.apk|e24e80b91dfc62015b78cc2bf70eca48295606d3
@@ -603,15 +603,15 @@ system_ext/etc/permissions/uimremoteserver.xml|99e292b0d73718a89a586f9803205dac0
 system_ext/etc/permissions/qti_telephony_hidl_wrapper.xml|3b687e0ed64784e02508f85c0be9e74b3f52559a
 system_ext/etc/permissions/qti_telephony_utils.xml|94c95bd091e47c772f7d505d8f7e54b9f99da149
 system_ext/etc/permissions/org_codeaurora_ims.xml|43e2605637a95b0817f290fd229f7979f9c5c27a
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar|477df747aa42254f2bd51b32275bf160d76104b7
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar|4cd5b06d4f0d0e475be72c34642547e2b42782c4
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar|25ba3b2fb6de8798e7a011350a1eb3474ca1cee1
--system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar|6d9b0b35cecb780052d2116333d8c4b820db8d44
--system_ext/framework/vendor.qti.latency-V2.0-java.jar|f37e41c0c7189de55180c1c085afd8190127aaf3
--system_ext/framework/qti-telephony-hidl-wrapper.jar|8c7526ffef8a33b16ec6ab3d843541748adbcbfb
--system_ext/framework/qti-telephony-utils.jar|9864a760f4e35cda4e90c3e628b7f6248c9ea7e1
--system_ext/framework/uimremoteclientlibrary.jar|46935224f7b2aa48bf7ab974c181460134180448
--system_ext/framework/uimremoteserverlibrary.jar|22e1dd8752cafb213409508b1c67f754b4af7316
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar|477df747aa42254f2bd51b32275bf160d76104b7
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar|4cd5b06d4f0d0e475be72c34642547e2b42782c4
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar|25ba3b2fb6de8798e7a011350a1eb3474ca1cee1
+system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar|6d9b0b35cecb780052d2116333d8c4b820db8d44
+system_ext/framework/vendor.qti.latency-V2.0-java.jar|f37e41c0c7189de55180c1c085afd8190127aaf3
+system_ext/framework/qti-telephony-hidl-wrapper.jar|8c7526ffef8a33b16ec6ab3d843541748adbcbfb
+system_ext/framework/qti-telephony-utils.jar|9864a760f4e35cda4e90c3e628b7f6248c9ea7e1
+system_ext/framework/uimremoteclientlibrary.jar|46935224f7b2aa48bf7ab974c181460134180448
+system_ext/framework/uimremoteserverlibrary.jar|22e1dd8752cafb213409508b1c67f754b4af7316
 system_ext/lib/com.qualcomm.qti.imscmservice@1.0.so|58cb9787f438476fcbaf4533ac63de06db1a92b2
 system_ext/lib/com.qualcomm.qti.imscmservice@2.0.so|dcc54af1879a300faba8884d477084d3cfbcec4d
 system_ext/lib/com.qualcomm.qti.imscmservice@2.1.so|6104a8d5706cd63f7e701db4fcd801eeb65a0759
@@ -807,8 +807,8 @@ system_ext/etc/permissions/com.android.omadm.radioconfig.xml|0fb5a34952a13a4a173
 system_ext/etc/permissions/qcrilhook.xml|30397e293b2c40e6b7a1d11c2a615cdd05de625a
 system_ext/etc/permissions/telephonyservice.xml|b7831598d3c19c6ce4ef431d1cc44d94c3c35a8d
 system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml|233f4f01302ed0d89067cbd25624fae045930c79
--system_ext/framework/qcrilhook.jar|330b5949e767641acb488a6a26807432fec0eb51
--system_ext/framework/RadioConfigLib.jar|0a3f12527d7f16f1a4db2c7de08eb132323042ff
+system_ext/framework/qcrilhook.jar|330b5949e767641acb488a6a26807432fec0eb51
+system_ext/framework/RadioConfigLib.jar|0a3f12527d7f16f1a4db2c7de08eb132323042ff
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|ba071d34d48906a9a86fcdc45e829264387627b0
 system_ext/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
