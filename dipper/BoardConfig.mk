@@ -31,6 +31,8 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/../fstab.dipper
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/dipper-radio
 
+TARGET_RECOVERY_UI_MARGIN_HEIGHT := 88
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/dipper/BoardConfigVendor.mk
 
