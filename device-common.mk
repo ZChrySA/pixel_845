@@ -52,6 +52,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.vulkan=adreno
 
+# Enable iorapd perfetto tracing for app starts
+PRODUCT_PRODUCT_PROPERTIES += \
+    iorapd.perfetto.enable=true
+# Enable iorapd readahead for app starts
+PRODUCT_PRODUCT_PROPERTIES += \
+    iorapd.readahead.enable=true
+
 # whitelisted app
 PRODUCT_COPY_FILES += \
     device/xiaomi/dipper/qti_whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/qti_whitelist.xml
