@@ -262,4 +262,6 @@
     <integer-array name="config_keyboardTapVibePattern">
         <item>10</item>
     </integer-array>
+
+    <integer name="config_screenBrightnessDoze">327</integer>
 </resources>
