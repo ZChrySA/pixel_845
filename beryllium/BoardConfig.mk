@@ -17,9 +17,6 @@
 
 LOCAL_PATH := device/xiaomi/dipper/beryllium
 
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-
 # Partitions
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 
