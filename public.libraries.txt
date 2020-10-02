@@ -1,4 +1,3 @@
-lib_aion_buffer.so
 libqti-perfd-client.so
 libadsprpc.so
 libcdsprpc.so
@@ -8,7 +7,7 @@ libtzcom.so
 libfastcvopt.so
 liblistenjni.so
 liblistensoundmodel2.so
-libOpenCL-pixel.so
+libOpenCL.so
 libmpbase.so
 libmialgoengine.so
 libVDClearShot.so
