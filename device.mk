@@ -548,10 +548,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sys.ssr.restart_level=modem,slpi,adsp
 
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
