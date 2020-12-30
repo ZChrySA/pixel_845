@@ -975,12 +975,6 @@
     <string name="config_wlan_network_service_package">vendor.qti.iwlan</string>
     <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
 
-    <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
-    <integer name="config_notificationsBatteryLedOn">250</integer>
-
-    <!-- Default value for LED off time when the battery is low on charge in miliseconds -->
-    <integer name="config_notificationsBatteryLedOff">509</integer>
-
     <string-array name="config_biometric_sensors">
         <item>0:2:15</item>
     </string-array>
