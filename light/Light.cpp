@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2018-2019 The LineageOS Project
+ * Copyright (C) 2018-2020 The LineageOS Project
+ * Copyright (C) 2020 The PixelExperience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,6 +76,8 @@ static uint32_t getBrightness(const LightState& state) {
     return (77 * red + 150 * green + 29 * blue) >> 8;
 }
 
+static constexpr uint32_t kBrightnessNoBlink = 5;
+
 static uint32_t rgbToBrightness(const LightState& state) {
     uint32_t color = state.color & 0x00ffffff;
     return ((77 * ((color >> 16) & 0xff))
@@ -105,48 +108,23 @@ void Light::handleBacklight(const LightState& state) {
 void Light::handleWhiteLed(const LightState& state, size_t index) {
     mLightStates.at(index) = state;
 
+    uint32_t whiteBrightness = 0;
     LightState stateToUse = mLightStates.front();
     for (const auto& lightState : mLightStates) {
         if (lightState.color & 0xffffff) {
             stateToUse = lightState;
+            whiteBrightness = kBrightnessNoBlink;
             break;
         }
     }
 
-    uint32_t whiteBrightness = getBrightness(stateToUse);
-
-    auto getScaledDutyPercent = [](int brightness) -> std::string {
-        std::string output;
-        for (int i = 0; i <= kRampSteps; i++) {
-            if (i != 0) {
-                output += ",";
-            }
-            output += std::to_string(i * 100 * brightness / (kDefaultMaxBrightness * kRampSteps));
-        }
-        return output;
-    };
+    uint32_t onMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOnMs : 0;
+    uint32_t offMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOffMs : 0;
 
     // Disable blinking to start
     set("/sys/class/leds/white/blink", 0);
 
-    if (stateToUse.flashMode == Flash::TIMED) {
-        // If the flashOnMs duration is not long enough to fit ramping up and down
-        // at the default step duration, step duration is modified to fit.
-        int32_t stepDuration = kRampMaxStepDurationMs;
-        int32_t pauseHi = stateToUse.flashOnMs - (stepDuration * kRampSteps * 2);
-        int32_t pauseLo = stateToUse.flashOffMs;
-
-        if (pauseHi < 0) {
-            stepDuration = stateToUse.flashOnMs / (kRampSteps * 2);
-            pauseHi = 0;
-        }
-
-        set("/sys/class/leds/white/start_idx", 0);
-        set("/sys/class/leds/white/duty_pcts", getScaledDutyPercent(whiteBrightness));
-        set("/sys/class/leds/white/pause_lo", pauseLo);
-        set("/sys/class/leds/white/pause_hi", pauseHi);
-        set("/sys/class/leds/white/ramp_step_ms", stepDuration);
-
+    if (onMs > 0 && offMs > 0) {
         // Start blinking
         set("/sys/class/leds/white/blink", 1);
     } else {
