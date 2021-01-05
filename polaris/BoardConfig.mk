@@ -18,7 +18,6 @@
 LOCAL_PATH := device/xiaomi/dipper/polaris
 
 # Display
-BOARD_PANEL_MAX_BRIGHTNESS := 4095
 TARGET_USES_DRM_PP := true
 
 # Partitions

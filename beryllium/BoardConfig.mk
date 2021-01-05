@@ -27,7 +27,6 @@ TARGET_TAP_TO_WAKE_NODE := "/dev/input/event2"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/../fstab.beryllium
 
 # Display
-BOARD_PANEL_MAX_BRIGHTNESS := 4095
 TARGET_USES_DRM_PP := true
 
 # Firmware update
