@@ -21,6 +21,7 @@ PRODUCT_HARDWARE := qcom
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/qcom/$(PRODUCT_PLATFORM) \
+    hardware/google/interfaces \
     hardware/google/pixel
 
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
@@ -347,6 +348,7 @@ PRODUCT_PACKAGES += \
 # Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.pixel \
+    pixel-power-ext-ndk_platform
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
