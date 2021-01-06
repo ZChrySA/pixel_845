@@ -16,28 +16,42 @@
  ***
  ****************************************************************************
  ****************************************************************************/
-#ifndef _MSM_AUDIO_WMA_H
-#define _MSM_AUDIO_WMA_H
-#define AUDIO_GET_WMA_CONFIG _IOR(AUDIO_IOCTL_MAGIC, (AUDIO_MAX_COMMON_IOCTL_NUM + 0), unsigned int)
-#define AUDIO_SET_WMA_CONFIG _IOW(AUDIO_IOCTL_MAGIC, (AUDIO_MAX_COMMON_IOCTL_NUM + 1), unsigned int)
-#define AUDIO_GET_WMA_CONFIG_V2 _IOR(AUDIO_IOCTL_MAGIC, (AUDIO_MAX_COMMON_IOCTL_NUM + 2), struct msm_audio_wma_config_v2)
-#define AUDIO_SET_WMA_CONFIG_V2 _IOW(AUDIO_IOCTL_MAGIC, (AUDIO_MAX_COMMON_IOCTL_NUM + 3), struct msm_audio_wma_config_v2)
-struct msm_audio_wma_config {
-  unsigned short armdatareqthr;
-  unsigned short channelsdecoded;
-  unsigned short wmabytespersec;
-  unsigned short wmasamplingfreq;
-  unsigned short wmaencoderopts;
+#ifndef __VOICE_SVC_H__
+#define __VOICE_SVC_H__
+#include <linux/types.h>
+#include <linux/ioctl.h>
+#define VOICE_SVC_DRIVER_NAME "voice_svc"
+#define VOICE_SVC_MVM_STR "MVM"
+#define VOICE_SVC_CVS_STR "CVS"
+#define MAX_APR_SERVICE_NAME_LEN 64
+#define MSG_REGISTER 0x1
+#define MSG_REQUEST 0x2
+#define MSG_RESPONSE 0x3
+struct voice_svc_write_msg {
+  __u32 msg_type;
+  __u8 payload[0];
 };
-struct msm_audio_wma_config_v2 {
-  unsigned short format_tag;
-  unsigned short numchannels;
-  uint32_t samplingrate;
-  uint32_t avgbytespersecond;
-  unsigned short block_align;
-  unsigned short validbitspersample;
-  uint32_t channelmask;
-  unsigned short encodeopt;
+struct voice_svc_register {
+  char svc_name[MAX_APR_SERVICE_NAME_LEN];
+  __u32 src_port;
+  __u8 reg_flag;
+};
+struct voice_svc_cmd_response {
+  __u32 src_port;
+  __u32 dest_port;
+  __u32 token;
+  __u32 opcode;
+  __u32 payload_size;
+  __u8 payload[0];
+};
+struct voice_svc_cmd_request {
+  char svc_name[MAX_APR_SERVICE_NAME_LEN];
+  __u32 src_port;
+  __u32 dest_port;
+  __u32 token;
+  __u32 opcode;
+  __u32 payload_size;
+  __u8 payload[0];
 };
 #endif
 
