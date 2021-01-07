@@ -100,11 +100,16 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libavservices_minijail_vendor \
+    libgcs \
+    libgcs-calwrapper \
+    libgcs-ipc \
+    libgcs-osal \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libtinycompress \
     libvolumelistener \
+    sound_trigger.primary.sdm845 \
     tinymix
 
 PRODUCT_COPY_FILES += \

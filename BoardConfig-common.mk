@@ -151,6 +151,10 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Sepolicy
 include device/xiaomi/dipper-sepolicy/dipper-sepolicy.mk
 
+# Sound Trigger
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+SOUND_TRIGGER_FEATURE_LPMA_ENABLED := true
+
 # Treble
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
