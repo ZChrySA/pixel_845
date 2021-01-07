@@ -234,6 +234,11 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
+# Hotword Enrollment
+PRODUCT_PACKAGES += \
+    HotwordEnrollmentOKGoogleWCD9340 \
+    HotwordEnrollmentXGoogleWCD9340
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sdm845-tavil-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sdm845-tavil-snd-card_Button_Jack.kl
