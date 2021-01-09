@@ -207,10 +207,6 @@ vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# Wi-Fi
-vendor/bin/cnss-daemon|cc114651fdf7e1a66f759a55b8c575a1fdceb4b7
-vendor/lib64/libqmi_cci_xiaomi.so|944e9c2bed06e11c5b4e0fc910642180d8e782dd
-
 # Init scripts
 vendor/etc/init/qseecomd.rc
 vendor/etc/init/cnd.rc
@@ -426,9 +422,9 @@ vendor/lib64/unnhal-acc-hvx.so|af2693f30872b96d91a6dc8ddb4882a26c6759ff
 # Peripheral manager - from blueline - RPB3.200720.005
 vendor/bin/pm-proxy|3d9dc57fed8930f04a70747181c07a49930d1d31
 vendor/bin/pm-service|2e8e2212f96e014163b8adab371246a86f72d540
-vendor/lib/libperipheral_client.so|0a77cc0b2787e3cd525b8920105f72f810cef15b
+-vendor/lib/libperipheral_client.so|0a77cc0b2787e3cd525b8920105f72f810cef15b
 vendor/lib/libspcom.so|98880fa3b7b6cf32a0bfbcc364597ddb98747ee6
-vendor/lib64/libperipheral_client.so|ac076dc703d4c605f9024b7e84e4dd104fe2710b
+-vendor/lib64/libperipheral_client.so|ac076dc703d4c605f9024b7e84e4dd104fe2710b
 vendor/lib64/libspcom.so|227b37fc0e7a8defc4b9640f7fee578646ca62d0
 
 # Power-off alarm - from blueline - RPB3.200720.005
@@ -758,14 +754,14 @@ vendor/lib64/libqcmaputils.so|3208995cb91db4250f337b42e3775f9d54b0da81
 vendor/lib64/libqdi.so|6e077f714a10b15240cfa18229f77cd8db5fe240
 vendor/lib64/libqdp.so|94a4d25e6ca5ca82a4996d51370d3954891a182f
 vendor/lib64/libqmi.so|1a6959ad2509db9c9b7ea38d625f549239e405b2
-vendor/lib64/libqmi_cci.so|943c9f44e2dc6e6b39fcbcba98926ce413ab9a70
+-vendor/lib64/libqmi_cci.so|943c9f44e2dc6e6b39fcbcba98926ce413ab9a70
 vendor/lib64/libqmi_client_helper.so|8df202217c469c250fe42c825ef62b01a0ddce04
 vendor/lib64/libqmi_client_qmux.so|c764f7b6f92b936c4858e2dcf90e97aa3f38ba98
-vendor/lib64/libqmi_common_so.so|6d886c4d59f72d6aceb17ccd0fbd7692e3adda9d
+-vendor/lib64/libqmi_common_so.so|6d886c4d59f72d6aceb17ccd0fbd7692e3adda9d
 vendor/lib64/libqmi_csi.so|7e4165a145733291cf4a450c9a48c3d77d6c0611
 vendor/lib64/libqmi_encdec.so|7dc29bb06b7edc92763ad5766678b2db44968f77
 vendor/lib64/libqmi_vs-google-1.so|3fcc5389f12a127072a129971b768eef76a92dbd
-vendor/lib64/libqmiservices.so|b00d207bdf6581b6bf1a3fe1579c480f60282f08
+-vendor/lib64/libqmiservices.so|b00d207bdf6581b6bf1a3fe1579c480f60282f08
 vendor/lib/libdiag.so|70e319804f00b72f8e8e66775901c21c53ad6445
 vendor/lib/libdsi_netctrl.so|42f5cdd9e2e65bc2e16ea47f6e6b3f11c86bf0ea
 vendor/lib/libdsutils.so|35c92d03dd7427b75273a0f3ec165bb760ecb0fc
@@ -775,14 +771,14 @@ vendor/lib/libqcmaputils.so|cadc9c3777574b3d8ddb8da06a06225be818c27c
 vendor/lib/libqdi.so|39536810575972d48bb7bd075e8bb00df9dc0166
 vendor/lib/libqdp.so|038720207186c7375c48bfee1b59b3b4a4fa519e
 vendor/lib/libqmi.so|be58b7826e181e95ac50023a98d3baf34eba5c65
-vendor/lib/libqmi_cci.so|b92cf10096a46b32eb02e2278336060443e2c81a
+-vendor/lib/libqmi_cci.so|b92cf10096a46b32eb02e2278336060443e2c81a
 vendor/lib/libqmi_client_helper.so|1d619bca0b08553811757a31046d5ca3c637251c
 vendor/lib/libqmi_client_qmux.so|bf9241d4ffba8c86686a80f78f6a7cc0b900b29b
-vendor/lib/libqmi_common_so.so|5993fecee4723f456e09016f15c2a1ef0198a987
+-vendor/lib/libqmi_common_so.so|5993fecee4723f456e09016f15c2a1ef0198a987
 vendor/lib/libqmi_csi.so|a108a17f5d3133d3d7e977f46e0d6ec8e536bb12
 vendor/lib/libqmi_encdec.so|6ffe5d6b57cc80e71501d5403cb1e74ff5a7203f
 vendor/lib/libqmi_vs-google-1.so|e0d9a8ea8e2bf2d1cadfc5dcea4d70d50babefe3
-vendor/lib/libqmiservices.so|f434ae437b4041dfe3d69356d18ed7ab468d72bc
+-vendor/lib/libqmiservices.so|f434ae437b4041dfe3d69356d18ed7ab468d72bc
 
 # RIL - from flame - RPB3.200720.005
 -system_ext/app/atfwd/atfwd.apk|7570d56423f1c270a182e057d6d18cfc9678891a
