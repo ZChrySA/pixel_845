@@ -236,6 +236,7 @@ PRODUCT_PACKAGES += \
 
 # Hotword Enrollment
 PRODUCT_PACKAGES += \
+    com.android.hotwordenrollment.common.util \
     HotwordEnrollmentOKGoogleWCD9340 \
     HotwordEnrollmentXGoogleWCD9340
 
