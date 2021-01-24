@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,11 @@
  */
 
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
-#define LOG_TAG "android.hardware.power@1.3-service.dipper-libperfmgr"
+#define LOG_TAG "android.hardware.power-service.pixel-libperfmgr"
+
+#include "Power.h"
+
+#include <mutex>
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -23,370 +27,239 @@
 #include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 
-#include <mutex>
-
 #include <utils/Log.h>
 #include <utils/Trace.h>
 
-#include "Power.h"
-#include "display-helper.h"
-#include <linux/input.h>
-#include <dirent.h>
+#include "disp-power/DisplayLowPower.h"
 
-constexpr int kWakeupModeOff = 4;
-constexpr int kWakeupModeOn = 5;
-
-namespace android {
+namespace aidl {
+namespace google {
 namespace hardware {
 namespace power {
-namespace V1_3 {
-namespace implementation {
+namespace impl {
+namespace pixel {
 
-using ::android::hardware::hidl_vec;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::hardware::power::V1_0::Feature;
-using ::android::hardware::power::V1_0::Status;
+extern bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return);
+extern bool setDeviceSpecificMode(Mode type, bool enabled);
 
 constexpr char kPowerHalStateProp[] = "vendor.powerhal.state";
 constexpr char kPowerHalAudioProp[] = "vendor.powerhal.audio";
-constexpr char kPowerHalInitProp[] = "vendor.powerhal.init";
 constexpr char kPowerHalRenderingProp[] = "vendor.powerhal.rendering";
-constexpr char kPowerHalConfigPath[] = "/vendor/etc/powerhint.json";
 
-Power::Power()
-    : mHintManager(nullptr),
+Power::Power(std::shared_ptr<HintManager> hm, std::shared_ptr<DisplayLowPower> dlpw)
+    : mHintManager(hm),
+      mDisplayLowPower(dlpw),
       mInteractionHandler(nullptr),
       mVRModeOn(false),
-      mSustainedPerfModeOn(false),
-      mCameraStreamingMode(false),
-      mReady(false) {
-    mInitThread = std::thread([this]() {
-        android::base::WaitForProperty(kPowerHalInitProp, "1");
-        mHintManager = HintManager::GetFromJSON(kPowerHalConfigPath);
-        if (!mHintManager) {
-            LOG(FATAL) << "Invalid config: " << kPowerHalConfigPath;
-        }
-        mInteractionHandler = std::make_unique<InteractionHandler>(mHintManager);
-        mInteractionHandler->Init();
-        std::string state = android::base::GetProperty(kPowerHalStateProp, "");
-        if (state == "CAMERA_STREAMING") {
-            ALOGI("Initialize with CAMERA_STREAMING on");
-            mHintManager->DoHint("CAMERA_STREAMING");
-            mCameraStreamingMode = true;
-        } else if (state == "SUSTAINED_PERFORMANCE") {
-            ALOGI("Initialize with SUSTAINED_PERFORMANCE on");
-            mHintManager->DoHint("SUSTAINED_PERFORMANCE");
-            mSustainedPerfModeOn = true;
-        } else if (state == "VR_MODE") {
-            ALOGI("Initialize with VR_MODE on");
-            mHintManager->DoHint("VR_MODE");
-            mVRModeOn = true;
-        } else if (state == "VR_SUSTAINED_PERFORMANCE") {
-            ALOGI("Initialize with SUSTAINED_PERFORMANCE and VR_MODE on");
-            mHintManager->DoHint("VR_SUSTAINED_PERFORMANCE");
-            mSustainedPerfModeOn = true;
-            mVRModeOn = true;
-        } else {
-            ALOGI("Initialize PowerHAL");
-        }
+      mSustainedPerfModeOn(false) {
+    mInteractionHandler = std::make_unique<InteractionHandler>(mHintManager);
+    mInteractionHandler->Init();
 
-        state = android::base::GetProperty(kPowerHalAudioProp, "");
-        if (state == "AUDIO_LOW_LATENCY") {
-            ALOGI("Initialize with AUDIO_LOW_LATENCY on");
-            mHintManager->DoHint("AUDIO_LOW_LATENCY");
-        }
-
-        state = android::base::GetProperty(kPowerHalRenderingProp, "");
-        if (state == "EXPENSIVE_RENDERING") {
-            ALOGI("Initialize with EXPENSIVE_RENDERING on");
-            mHintManager->DoHint("EXPENSIVE_RENDERING");
-        }
-        // Now start to take powerhint
-        mReady.store(true);
-        ALOGI("PowerHAL ready to process hints");
-    });
-    mInitThread.detach();
-}
-
-// Methods from ::android::hardware::power::V1_0::IPower follow.
-Return<void> Power::setInteractive(bool /* interactive */) {
-    return Void();
-}
-
-Return<void> Power::powerHint(PowerHint_1_0 hint, int32_t data) {
-    if (!mReady) {
-        return Void();
+    std::string state = ::android::base::GetProperty(kPowerHalStateProp, "");
+    if (state == "SUSTAINED_PERFORMANCE") {
+        ALOGI("Initialize with SUSTAINED_PERFORMANCE on");
+        mHintManager->DoHint("SUSTAINED_PERFORMANCE");
+        mSustainedPerfModeOn = true;
+    } else if (state == "VR") {
+        ALOGI("Initialize with VR on");
+        mHintManager->DoHint(state);
+        mVRModeOn = true;
+    } else if (state == "VR_SUSTAINED_PERFORMANCE") {
+        ALOGI("Initialize with SUSTAINED_PERFORMANCE and VR on");
+        mHintManager->DoHint("VR_SUSTAINED_PERFORMANCE");
+        mSustainedPerfModeOn = true;
+        mVRModeOn = true;
+    } else {
+        ALOGI("Initialize PowerHAL");
     }
-    ATRACE_INT(android::hardware::power::V1_0::toString(hint).c_str(), data);
-    ALOGD_IF(hint != PowerHint_1_0::INTERACTION, "%s: %d",
-             android::hardware::power::V1_0::toString(hint).c_str(), static_cast<int>(data));
-    switch (hint) {
-        case PowerHint_1_0::INTERACTION:
-            if (mVRModeOn || mSustainedPerfModeOn) {
-                ALOGV("%s: ignoring due to other active perf hints", __func__);
+
+    state = ::android::base::GetProperty(kPowerHalAudioProp, "");
+    if (state == "AUDIO_STREAMING_LOW_LATENCY") {
+        ALOGI("Initialize with AUDIO_LOW_LATENCY on");
+        mHintManager->DoHint(state);
+    }
+
+    state = ::android::base::GetProperty(kPowerHalRenderingProp, "");
+    if (state == "EXPENSIVE_RENDERING") {
+        ALOGI("Initialize with EXPENSIVE_RENDERING on");
+        mHintManager->DoHint("EXPENSIVE_RENDERING");
+    }
+
+    // Now start to take powerhint
+    ALOGI("PowerHAL ready to process hints");
+}
+
+ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
+    LOG(DEBUG) << "Power setMode: " << toString(type) << " to: " << enabled;
+    ATRACE_INT(toString(type).c_str(), enabled);
+    if (setDeviceSpecificMode(type, enabled)) {
+        return ndk::ScopedAStatus::ok();
+    }
+    switch (type) {
+        case Mode::LOW_POWER:
+            mDisplayLowPower->SetDisplayLowPower(enabled);
+            if (enabled) {
+                mHintManager->DoHint(toString(type));
             } else {
-                mInteractionHandler->Acquire(data);
+                mHintManager->EndHint(toString(type));
             }
             break;
-        case PowerHint_1_0::SUSTAINED_PERFORMANCE:
-            if (data && !mSustainedPerfModeOn) {
+        case Mode::SUSTAINED_PERFORMANCE:
+            if (enabled && !mSustainedPerfModeOn) {
                 if (!mVRModeOn) {  // Sustained mode only.
                     mHintManager->DoHint("SUSTAINED_PERFORMANCE");
                 } else {  // Sustained + VR mode.
-                    mHintManager->EndHint("VR_MODE");
+                    mHintManager->EndHint("VR");
                     mHintManager->DoHint("VR_SUSTAINED_PERFORMANCE");
                 }
                 mSustainedPerfModeOn = true;
-            } else if (!data && mSustainedPerfModeOn) {
+            } else if (!enabled && mSustainedPerfModeOn) {
                 mHintManager->EndHint("VR_SUSTAINED_PERFORMANCE");
                 mHintManager->EndHint("SUSTAINED_PERFORMANCE");
                 if (mVRModeOn) {  // Switch back to VR Mode.
-                    mHintManager->DoHint("VR_MODE");
+                    mHintManager->DoHint("VR");
                 }
                 mSustainedPerfModeOn = false;
             }
             break;
-        case PowerHint_1_0::VR_MODE:
-            if (data && !mVRModeOn) {
+        case Mode::VR:
+            if (enabled && !mVRModeOn) {
                 if (!mSustainedPerfModeOn) {  // VR mode only.
-                    mHintManager->DoHint("VR_MODE");
+                    mHintManager->DoHint("VR");
                 } else {  // Sustained + VR mode.
                     mHintManager->EndHint("SUSTAINED_PERFORMANCE");
                     mHintManager->DoHint("VR_SUSTAINED_PERFORMANCE");
                 }
                 mVRModeOn = true;
-            } else if (!data && mVRModeOn) {
+            } else if (!enabled && mVRModeOn) {
                 mHintManager->EndHint("VR_SUSTAINED_PERFORMANCE");
-                mHintManager->EndHint("VR_MODE");
+                mHintManager->EndHint("VR");
                 if (mSustainedPerfModeOn) {  // Switch back to sustained Mode.
                     mHintManager->DoHint("SUSTAINED_PERFORMANCE");
                 }
                 mVRModeOn = false;
             }
             break;
-        case PowerHint_1_0::LAUNCH:
+        case Mode::LAUNCH:
             if (mVRModeOn || mSustainedPerfModeOn) {
-                ALOGV("%s: ignoring due to other active perf hints", __func__);
-            } else {
-                if (data) {
-                    // Hint until canceled
-                    mHintManager->DoHint("LAUNCH");
-                } else {
-                    mHintManager->EndHint("LAUNCH");
-                }
+                break;
             }
-            break;
-        case PowerHint_1_0::LOW_POWER:
-            if (data) {
-                // Device in battery saver mode, enable display low power mode
-                set_display_lpm(true);
-            } else {
-                // Device exiting battery saver mode, disable display low power mode
-                set_display_lpm(false);
-            }
-            break;
+            [[fallthrough]];
+        case Mode::DOUBLE_TAP_TO_WAKE:
+            [[fallthrough]];
+        case Mode::FIXED_PERFORMANCE:
+            [[fallthrough]];
+        case Mode::EXPENSIVE_RENDERING:
+            [[fallthrough]];
+        case Mode::INTERACTIVE:
+            [[fallthrough]];
+        case Mode::DEVICE_IDLE:
+            [[fallthrough]];
+        case Mode::DISPLAY_INACTIVE:
+            [[fallthrough]];
+        case Mode::AUDIO_STREAMING_LOW_LATENCY:
+            [[fallthrough]];
+        case Mode::CAMERA_STREAMING_SECURE:
+            [[fallthrough]];
+        case Mode::CAMERA_STREAMING_LOW:
+            [[fallthrough]];
+        case Mode::CAMERA_STREAMING_MID:
+            [[fallthrough]];
+        case Mode::CAMERA_STREAMING_HIGH:
+            [[fallthrough]];
         default:
-            break;
-    }
-    return Void();
-}
-
-int open_ts_input() {
-    int fd = -1;
-    DIR *dir = opendir("/dev/input");
-
-    if (dir != NULL) {
-        struct dirent *ent;
-
-        while ((ent = readdir(dir)) != NULL) {
-            if (ent->d_type == DT_CHR) {
-                char absolute_path[PATH_MAX] = {0};
-                char name[80] = {0};
-
-                strcpy(absolute_path, "/dev/input/");
-                strcat(absolute_path, ent->d_name);
-
-                fd = open(absolute_path, O_RDWR);
-                if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
-                    if (strcmp(name, "atmel_mxt_ts") == 0 || strcmp(name, "fts") == 0 ||
-                            strcmp(name, "ft5x46") == 0 || strcmp(name, "synaptics_dsx") == 0 ||
-                            strcmp(name, "NVTCapacitiveTouchScreen") == 0)
-                        break;
-                }
-
-                close(fd);
-                fd = -1;
-            }
-        }
-
-        closedir(dir);
-    }
-
-    return fd;
-}
-
-Return<void> Power::setFeature(Feature feature, bool activate) {
-    switch (feature) {
-        case Feature::POWER_FEATURE_DOUBLE_TAP_TO_WAKE: {
-            int fd = open_ts_input();
-            if (fd == -1) {
-                ALOGW("DT2W won't work because no supported touchscreen input devices were found");
-                return Void();
-            }
-            struct input_event ev;
-            ev.type = EV_SYN;
-            ev.code = SYN_CONFIG;
-            ev.value = activate ? kWakeupModeOn : kWakeupModeOff;
-            write(fd, &ev, sizeof(ev));
-            close(fd);
-            } break;
-        default:
-            break;
-    }
-    return Void();
-}
-
-Return<void> Power::getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) {
-    LOG(ERROR) << "getPlatformLowPowerStats not supported. Use IPowerStats HAL.";
-    _hidl_cb({}, Status::SUCCESS);
-    return Void();
-}
-
-// Methods from ::android::hardware::power::V1_1::IPower follow.
-Return<void> Power::getSubsystemLowPowerStats(getSubsystemLowPowerStats_cb _hidl_cb) {
-    LOG(ERROR) << "getSubsystemLowPowerStats not supported. Use IPowerStats HAL.";
-    _hidl_cb({}, Status::SUCCESS);
-    return Void();
-}
-
-Return<void> Power::powerHintAsync(PowerHint_1_0 hint, int32_t data) {
-    // just call the normal power hint in this oneway function
-    return powerHint(hint, data);
-}
-
-// Methods from ::android::hardware::power::V1_2::IPower follow.
-Return<void> Power::powerHintAsync_1_2(PowerHint_1_2 hint, int32_t data) {
-    if (!mReady) {
-        return Void();
-    }
-
-    ATRACE_INT(android::hardware::power::V1_2::toString(hint).c_str(), data);
-    ALOGD_IF(hint >= PowerHint_1_2::AUDIO_STREAMING, "%s: %d",
-             android::hardware::power::V1_2::toString(hint).c_str(), static_cast<int>(data));
-
-    switch (hint) {
-        case PowerHint_1_2::AUDIO_LOW_LATENCY:
-            if (data) {
-                // Hint until canceled
-                mHintManager->DoHint("AUDIO_LOW_LATENCY");
+            if (enabled) {
+                mHintManager->DoHint(toString(type));
             } else {
-                mHintManager->EndHint("AUDIO_LOW_LATENCY");
+                mHintManager->EndHint(toString(type));
             }
             break;
-        case PowerHint_1_2::AUDIO_STREAMING:
+    }
+
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::isModeSupported(Mode type, bool *_aidl_return) {
+    bool supported = mHintManager->IsHintSupported(toString(type));
+    // LOW_POWER handled insides PowerHAL specifically
+    if (type == Mode::LOW_POWER) {
+        supported = true;
+    }
+    LOG(INFO) << "Power mode " << toString(type) << " isModeSupported: " << supported;
+    if (isDeviceSpecificModeSupported(type, _aidl_return)) {
+        return ndk::ScopedAStatus::ok();
+    }
+    *_aidl_return = supported;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setBoost(Boost type, int32_t durationMs) {
+    LOG(DEBUG) << "Power setBoost: " << toString(type) << " duration: " << durationMs;
+    ATRACE_INT(toString(type).c_str(), durationMs);
+    switch (type) {
+        case Boost::INTERACTION:
             if (mVRModeOn || mSustainedPerfModeOn) {
-                ALOGV("%s: ignoring due to other active perf hints", __func__);
-            } else {
-                if (data) {
-                    mHintManager->DoHint("AUDIO_STREAMING");
-                } else {
-                    mHintManager->EndHint("AUDIO_STREAMING");
-                }
+                break;
             }
+            mInteractionHandler->Acquire(durationMs);
             break;
-        case PowerHint_1_2::CAMERA_LAUNCH:
-            if (data > 0) {
-                mHintManager->DoHint("CAMERA_LAUNCH");
-            } else if (data == 0) {
-                mHintManager->EndHint("CAMERA_LAUNCH");
-            } else {
-                ALOGE("CAMERA LAUNCH INVALID DATA: %d", data);
-            }
-            break;
-        case PowerHint_1_2::CAMERA_STREAMING: {
-            if (data > 0) {
-                mHintManager->DoHint("CAMERA_STREAMING");
-                mCameraStreamingMode = true;
-            } else {
-                mHintManager->EndHint("CAMERA_STREAMING");
-                mCameraStreamingMode = false;
-            }
-
-            const auto prop = mCameraStreamingMode
-                                  ? "CAMERA_STREAMING"
-                                  : "";
-            if (!android::base::SetProperty(kPowerHalStateProp, prop)) {
-                ALOGE("%s: could set powerHAL state %s property", __func__, prop);
-            }
-            break;
-        }
-        case PowerHint_1_2::CAMERA_SHOT:
-            if (data > 0) {
-                mHintManager->DoHint("CAMERA_SHOT", std::chrono::milliseconds(data));
-            } else if (data == 0) {
-                mHintManager->EndHint("CAMERA_SHOT");
-            } else {
-                ALOGE("CAMERA SHOT INVALID DATA: %d", data);
-            }
-            break;
+        case Boost::DISPLAY_UPDATE_IMMINENT:
+            [[fallthrough]];
+        case Boost::ML_ACC:
+            [[fallthrough]];
+        case Boost::AUDIO_LAUNCH:
+            [[fallthrough]];
+        case Boost::CAMERA_LAUNCH:
+            [[fallthrough]];
+        case Boost::CAMERA_SHOT:
+            [[fallthrough]];
         default:
-            return powerHint(static_cast<PowerHint_1_0>(hint), data);
+            if (mVRModeOn || mSustainedPerfModeOn) {
+                break;
+            }
+            if (durationMs > 0) {
+                mHintManager->DoHint(toString(type), std::chrono::milliseconds(durationMs));
+            } else if (durationMs == 0) {
+                mHintManager->DoHint(toString(type));
+            } else {
+                mHintManager->EndHint(toString(type));
+            }
+            break;
     }
-    return Void();
+
+    return ndk::ScopedAStatus::ok();
 }
 
-// Methods from ::android::hardware::power::V1_3::IPower follow.
-Return<void> Power::powerHintAsync_1_3(PowerHint_1_3 hint, int32_t data) {
-    if (!mReady) {
-        return Void();
-    }
-
-    if (hint == PowerHint_1_3::EXPENSIVE_RENDERING) {
-        ATRACE_INT(android::hardware::power::V1_3::toString(hint).c_str(), data);
-        if (mVRModeOn || mSustainedPerfModeOn) {
-            ALOGV("%s: ignoring due to other active perf hints", __func__);
-        } else {
-            if (data > 0) {
-                mHintManager->DoHint("EXPENSIVE_RENDERING");
-            } else {
-                mHintManager->EndHint("EXPENSIVE_RENDERING");
-            }
-        }
-    } else {
-        return powerHintAsync_1_2(static_cast<PowerHint_1_2>(hint), data);
-    }
-    return Void();
+ndk::ScopedAStatus Power::isBoostSupported(Boost type, bool *_aidl_return) {
+    bool supported = mHintManager->IsHintSupported(toString(type));
+    LOG(INFO) << "Power boost " << toString(type) << " isBoostSupported: " << supported;
+    *_aidl_return = supported;
+    return ndk::ScopedAStatus::ok();
 }
 
 constexpr const char *boolToString(bool b) {
     return b ? "true" : "false";
 }
 
-Return<void> Power::debug(const hidl_handle &handle, const hidl_vec<hidl_string> &) {
-    if (handle != nullptr && handle->numFds >= 1 && mReady) {
-        int fd = handle->data[0];
-
-        std::string buf(android::base::StringPrintf(
+binder_status_t Power::dump(int fd, const char **, uint32_t) {
+    std::string buf(::android::base::StringPrintf(
             "HintManager Running: %s\n"
             "VRMode: %s\n"
-            "CameraStreamingMode: %s\n"
             "SustainedPerformanceMode: %s\n",
             boolToString(mHintManager->IsRunning()), boolToString(mVRModeOn),
-            boolToString(mCameraStreamingMode),
             boolToString(mSustainedPerfModeOn)));
-        // Dump nodes through libperfmgr
-        mHintManager->DumpToFd(fd);
-        if (!android::base::WriteStringToFd(buf, fd)) {
-            PLOG(ERROR) << "Failed to dump state to fd";
-        }
-        fsync(fd);
+    // Dump nodes through libperfmgr
+    mHintManager->DumpToFd(fd);
+    if (!::android::base::WriteStringToFd(buf, fd)) {
+        PLOG(ERROR) << "Failed to dump state to fd";
     }
-    return Void();
+    fsync(fd);
+    return STATUS_OK;
 }
 
-}  // namespace implementation
-}  // namespace V1_3
+}  // namespace pixel
+}  // namespace impl
 }  // namespace power
 }  // namespace hardware
-}  // namespace android
+}  // namespace google
+}  // namespace aidl
