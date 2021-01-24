@@ -26,6 +26,21 @@ PRODUCT_PLATFORM := sdm845
 
 include device/xiaomi/dipper/device.mk
 
+# Bug 77867216
+PRODUCT_PROPERTY_OVERRIDES += audio.adm.buffering.ms=3
+PRODUCT_PROPERTY_OVERRIDES += vendor.audio.adm.buffering.ms=3
+PRODUCT_PROPERTY_OVERRIDES += audio_hal.period_multiplier=2
+PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
+
+# Enable HW Codec 2.0 as default service
+# Set all codec components are available with their normal ranks
+# Set OMX components's default rank large than Codec 2.0 HW components's default rank (0x100)
+PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.ccodec=4
+PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=512
+
+# AUX packagelist
+PRODUCT_PROPERTY_OVERRIDES += vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.google.android.GoogleCameraEng
+
 # Setting vendor SPL
 VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
 
@@ -62,3 +77,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # whitelisted app
 PRODUCT_COPY_FILES += \
     device/xiaomi/dipper/qti_whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/qti_whitelist.xml
+
+# Set thermal warm reset
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.thermal_warmreset = true \

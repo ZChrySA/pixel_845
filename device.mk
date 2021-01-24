@@ -24,6 +24,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel
 
+TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
+
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 
 # Enable updating of APEXes
@@ -83,9 +85,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-# Properties
-include $(LOCAL_PATH)/device-properties.mk
-
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
@@ -132,6 +131,94 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=30 \
+    persist.vendor.audio.button_jack.profile=volume \
+    persist.vendor.audio.button_jack.switch=0 \
+    persist.vendor.audio.ras.enabled=false \
+    ro.af.client_heap_size_kbyte=7168 \
+    ro.vendor.audio.sdk.ssr=false \
+    ro.vendor.audio.soundfx.usb=true \
+    vendor.audio.dolby.ds2.enabled=false \
+    vendor.audio.dolby.ds2.hardbypass=false \
+    vendor.audio.enable.dp.for.voice=false \
+    vendor.audio.feature.a2dp_offload.enable=true \
+    vendor.audio.feature.afe_proxy.enable=true \
+    vendor.audio.feature.anc_headset.enable=true \
+    vendor.audio.feature.audiozoom.enable=false \
+    vendor.audio.feature.battery_listener.enable=false \
+    vendor.audio.feature.compr_cap.enable=false \
+    vendor.audio.feature.compress_in.enable=false \
+    vendor.audio.feature.compress_meta_data.enable=true \
+    vendor.audio.feature.compr_voip.enable=false \
+    vendor.audio.feature.concurrent_capture.enable=false \
+    vendor.audio.feature.custom_stereo.enable=true \
+    vendor.audio.feature.deepbuffer_as_primary.enable=false \
+    vendor.audio.feature.display_port.enable=true \
+    vendor.audio.feature.dsm_feedback.enable=false \
+    vendor.audio.feature.dynamic_ecns.enable=false \
+    vendor.audio.feature.ext_hw_plugin.enable=false \
+    vendor.audio.feature.external_dsp.enable=false \
+    vendor.audio.feature.external_speaker.enable=false \
+    vendor.audio.feature.external_speaker_tfa.enable=false \
+    vendor.audio.feature.fluence.enable=true \
+    vendor.audio.feature.fm.enable=true \
+    vendor.audio.feature.hdmi_edid.enable=true \
+    vendor.audio.feature.hdmi_passthrough.enable=true \
+    vendor.audio.feature.hfp.enable=true \
+    vendor.audio.feature.hifi_audio.enable=false \
+    vendor.audio.feature.hwdep_cal.enable=false \
+    vendor.audio.feature.incall_music.enable=false \
+    vendor.audio.feature.keep_alive.enable=false \
+    vendor.audio.feature.kpi_optimize.enable=true \
+    vendor.audio.feature.maxx_audio.enable=false \
+    vendor.audio.feature.multi_voice_session.enable=true \
+    vendor.audio.feature.ras.enable=true \
+    vendor.audio.feature.record_play_concurency.enable=false \
+    vendor.audio.feature.snd_mon.enable=true \
+    vendor.audio.feature.spkr_prot.enable=true \
+    vendor.audio.feature.src_trkn.enable=true \
+    vendor.audio.feature.ssrec.enable=true \
+    vendor.audio.feature.usb_offload.enable=true \
+    vendor.audio.feature.usb_offload_burst_mode.enable=false \
+    vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
+    vendor.audio.feature.vbat.enable=true \
+    vendor.audio.feature.wsa.enable=false \
+    vendor.audio.flac.sw.decoder.24bit=true \
+    vendor.audio_hal.in_period_size=144 \
+    vendor.audio.hal.output.suspend.supported=false \
+    vendor.audio_hal.period_size=192 \
+    vendor.audio.hw.aac.encoder=false \
+    vendor.audio.noisy.broadcast.delay=600 \
+    vendor.audio.offload.buffer.size.kb=32 \
+    vendor.audio.offload.multiaac.enable=true \
+    vendor.audio.offload.multiple.enabled=true \
+    vendor.audio.offload.passthrough=false \
+    vendor.audio.offload.pstimeout.secs=3 \
+    vendor.audio.offload.track.enable=false \
+    vendor.audio.parser.ip.buffer.size=262144 \
+    vendor.voice.path.for.pcm.voip=false \
+    vendor.audio.safx.pbe.enabled=false \
+    vendor.audio.tunnel.encode=false \
+    vendor.audio.use.sw.alac.decoder=true \
+    vendor.audio.use.sw.ape.decoder=true
+
+# Audio fluence, ns, aec property, voice and media volume steps
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    ro.qc.sdk.audio.fluencetype=fluence \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.voicecomm=true \
+    persist.audio.fluence.voicerec=false \
+    ro.config.vc_call_vol_steps=7 \
+    ro.config.media_vol_steps=25
+
+# MaxxAudio effect and add rotation monitor
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.monitorRotation=true
+
 # Bluetooth Audio HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
@@ -157,6 +244,9 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     Snap \
     vendor.qti.hardware.camera.device@1.0.vendor
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=true \
 
 # Common init scripts
 PRODUCT_COPY_FILES += \
@@ -212,11 +302,34 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.lights=qcom
 
+# graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196610
+
+# SurfaceFlinger
+
+# Graphics
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+
+# Must align with HAL types Dataspace
+# The data space of wide color gamut composition preference is Dataspace::DISPLAY_P3
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.wcg_composition_dataspace=143261696
+
+# Display
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_wide_color_display=true
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_HDR_display=true
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=true
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.protected_contents=true
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.2-service.clearkey
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
@@ -294,6 +407,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media_codecs_omx.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_omx.xml \
     $(LOCAL_PATH)/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
+# Storage: for factory reset protection feature
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -313,11 +430,40 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.dipper-libperfmgr \
     android.hardware.power.stats@1.0-service.dipper
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
+    vendor.iop.enable_prefetch_ofr=0 \
+    vendor.iop.enable_uxe=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.multisim.config=dsds \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.RATE_ADAPT_ENABLE=1 \
+    persist.vendor.radio.ROTATION_ENABLE=1 \
+    persist.vendor.radio.VT_ENABLE=1 \
+    persist.vendor.radio.VT_HYBRID_ENABLE=1 \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.videopause.mode=1 \
+    persist.vendor.radio.multisim_switch_support=true \
+    persist.vendor.radio.sib16_support=1 \
+    persist.vendor.radio.data_con_rprt=true \
+    persist.vendor.radio.relay_oprt_change=1 \
+    persist.vendor.radio.no_wait_for_card=1 \
+    persist.vendor.radio.sap_silent_pin=1 \
+    persist.vendor.radio.manual_nw_rej_ct=1 \
+    ril.subscription.types=NV,RUIM \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ro.com.android.dataroaming=true \
+    ro.telephony.default_network=22,22
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -330,6 +476,10 @@ PRODUCT_PACKAGES += \
     rcs_service_aidl.xml \
     rcs_service_api \
     rcs_service_api.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.rcs.supported=1 \
+    persist.vendor.ims.disableUserAgent=0
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -351,6 +501,11 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
     sensors.sdm845 \
     libsensorndkbridge
+
+# SSR
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ssr.enable_ramdumps=0 \
+    persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # TextClassifier
 PRODUCT_PACKAGES += \
@@ -424,9 +579,43 @@ PRODUCT_PACKAGES += \
 LIB_NL := libnl_32
 PRODUCT_PACKAGES += $(LIB_NL)
 
+# Set display color mode to Automatic by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2
+
 # Dexpreopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle
+
+# Override heap growth limit due to high display density on device
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m
+
+# Early phase offset configuration for SurfaceFlinger (b/75985430)
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_phase_offset_ns=500000
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_app_phase_offset_ns=500000
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_gl_phase_offset_ns=3000000
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_gl_app_phase_offset_ns=15000000
+
+# Enable backpressure for GL comp
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_gl_backpressure=1
+
+# Do not skip init trigger by default
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    vendor.skip.init=0
+
+# Increment the SVN for any official public releases
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.build.svn=41
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.adb.secure=1
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/dipper/$(PRODUCT_PLATFORM)/kernel-headers
 
