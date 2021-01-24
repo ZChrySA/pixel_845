@@ -15,6 +15,21 @@
 #
 
 on property:sys.boot_completed=1
+    # PowerHAL permissions
+    chown system system /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
+    chown system system /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
+    chown system system /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
+    chown system system /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms
+    chown system system /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent
+    chown system system /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/sample_ms
+
+    chown 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
+    chown 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
+    chown 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
+    chown 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms
+    chown 0664 /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent
+    chown 0664 /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/sample_ms
+
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
     write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
