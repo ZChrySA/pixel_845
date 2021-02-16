@@ -22,7 +22,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/qcom/$(PRODUCT_PLATFORM) \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/xiaomi
 
 TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
 
@@ -453,11 +454,14 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.xiaomi_sdm845-libperfmgr \
+    android.hardware.power-service.xiaomi-libperfmgr \
     android.hardware.power.stats@1.0-service.dipper
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/power-libperfmgr
+BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/thermal
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
