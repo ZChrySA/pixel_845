@@ -26,7 +26,7 @@ PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 # Manifest
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/manifest_keymaster_3_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_keymaster_3_0.xml
+	$(LOCAL_PATH)/manifest_keymaster_4_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_keymaster_4_0.xml
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
