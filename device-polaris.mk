@@ -91,3 +91,5 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/manifest_qcom_gnss.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_qcom_gnss.xml
 
 include device/xiaomi/dipper/nfc/nfc.mk
+
+include device/xiaomi/dipper/wifi.mk

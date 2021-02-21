@@ -97,3 +97,5 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     mkfs.ntfs \
     mount.ntfs
+
+include device/xiaomi/dipper/wifi_legacy.mk
