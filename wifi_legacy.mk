@@ -20,5 +20,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/xiaomi/dipper/wifi_legacy
 
 CNSS := cnss-daemon
-CNSS += libqmi_cci_xiaomi
 PRODUCT_PACKAGES += $(CNSS)
+
+PRODUCT_COPY_FILES += \
+    device/xiaomi/dipper/wifi_legacy/libqmi_cci_xiaomi.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmi_cci_xiaomi.so:qti

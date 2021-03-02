@@ -11,18 +11,3 @@ cc_prebuilt_binary {
 	},
 	check_elf_files: false,
 }
-
-cc_prebuilt_library_shared {
-        name: "libqmi_cci_xiaomi",
-        owner: "qti",
-        strip: {
-                none: true,
-        },
-        target: {
-                android_arm64: {
-                        srcs: ["libqmi_cci_xiaomi.so"],
-                },
-        },
-        prefer: true,
-        soc_specific: true,
-}
