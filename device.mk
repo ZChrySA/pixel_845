@@ -253,7 +253,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.msm.usb.configfs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.msm.usb.configfs.rc \
     $(LOCAL_PATH)/init.hardware.early_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).early_boot.sh \
     $(LOCAL_PATH)/init.hardware.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).post_boot.sh  \
-    $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/init.hardware.sensors.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).sensors.sh \
     $(LOCAL_PATH)/init.hardware.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).sh \
     $(LOCAL_PATH)/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qcom.usb.rc \
