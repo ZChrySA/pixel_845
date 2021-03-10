@@ -214,7 +214,8 @@
             ],
             "VrThreshold":49.0,
             "Multiplier":0.001,
-            "Monitor": true
+            "Monitor": true,
+            "SendPowerHint": true
         }
     ],
     "CoolingDevices":[
