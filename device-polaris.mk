@@ -16,8 +16,6 @@
 
 LOCAL_PATH := device/xiaomi/dipper
 
-PRODUCT_HARDWARE := qcom
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/xiaomi/polaris-kernel/Image.gz-dtb
 else
@@ -71,10 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Device fstab
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.dipper:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
-
-# Device init scripts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.hardware.dipper.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \

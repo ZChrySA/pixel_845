@@ -16,8 +16,6 @@
 
 LOCAL_PATH := device/xiaomi/dipper
 
-PRODUCT_HARDWARE := qcom
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/xiaomi/dipper-kernel/Image.gz-dtb
 else
@@ -85,7 +83,6 @@ PRODUCT_COPY_FILES += \
 
 # Device init scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.hardware.dipper.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/dipper/init.dipper.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.dipper.rc
 
 # Fingerprint

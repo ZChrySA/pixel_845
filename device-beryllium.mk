@@ -16,8 +16,6 @@
 
 LOCAL_PATH := device/xiaomi/dipper
 
-PRODUCT_HARDWARE := qcom
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/xiaomi/beryllium-kernel/Image.gz-dtb
 else
@@ -65,7 +63,6 @@ PRODUCT_COPY_FILES += \
 
 # Device init scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.hardware.beryllium.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/beryllium/init.beryllium.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.beryllium.rc
 
 # Display density
