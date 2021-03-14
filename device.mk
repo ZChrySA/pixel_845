@@ -630,6 +630,10 @@ PRODUCT_COPY_FILES += \
 
 BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/power-libperfmgr
 
+# persist
+PRODUCT_COPY_FILES += \
+    device/xiaomi/dipper/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist
+
 # power HAL
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr-dipper
