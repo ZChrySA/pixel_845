@@ -98,4 +98,8 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     mount.ntfs
 
+# Power
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/powerhint_no_early_wakeup.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 include device/xiaomi/dipper/wifi_legacy.mk
