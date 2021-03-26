@@ -57,17 +57,17 @@ on property:sys.boot_completed=1
 
     # Enable memlat governor
     write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 8
     write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
     write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 8
     write /sys/class/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
 
     write /sys/class/devfreq/soc:qcom,l3-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,l3-cpu0/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,l3-cpu0/polling_interval 8
     write /sys/class/devfreq/soc:qcom,l3-cpu0/mem_latency/ratio_ceil 400
     write /sys/class/devfreq/soc:qcom,l3-cpu4/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,l3-cpu4/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,l3-cpu4/polling_interval 8
     write /sys/class/devfreq/soc:qcom,l3-cpu4/mem_latency/ratio_ceil 4000
 
     # Turn on sleep modes.
