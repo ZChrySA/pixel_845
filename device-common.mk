@@ -81,3 +81,7 @@ PRODUCT_COPY_FILES += \
 # Set thermal warm reset
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.thermal_warmreset = true \
+
+# Modem logging file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/dipper/init.logging.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).logging.rc

@@ -260,7 +260,29 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.qcom.usb.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.usb.sh \
     $(LOCAL_PATH)/init.recovery.hardware.rc:recovery/root/init.recovery.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.power.rc \
-    $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+    $(LOCAL_PATH)/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
+    $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    $(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh
+
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.mpssrfs.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_HARDWARE).mpssrfs.rc
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.diag.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_HARDWARE).diag.rc
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.userdebug.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).userdebug.rc
+else
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.mpssrfs.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_HARDWARE).mpssrfs.rc
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.hardware.diag.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_HARDWARE).diag.rc
+endif
+
+# Enable CAT by default
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+  PRODUCT_COPY_FILES += \
+      $(LOCAL_PATH)/init.cat.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cat.rc
+endif
 
 # Context Hub
 PRODUCT_PACKAGES += \
