@@ -235,6 +235,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.bluetooth.wipower=false
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
     $(LOCAL_PATH)/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
 # Camera
@@ -461,7 +462,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.iop.enable_uxe=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.multisim.config=dsds \
+    persist.vendor.cne.feature=1 \
     persist.vendor.data.iwlan.enable=true \
     persist.vendor.radio.RATE_ADAPT_ENABLE=1 \
     persist.vendor.radio.ROTATION_ENABLE=1 \
@@ -471,6 +472,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_ltd_sys_ind=1 \
     persist.vendor.radio.videopause.mode=1 \
+    persist.vendor.radio.mt_sms_ack=30 \
     persist.vendor.radio.multisim_switch_support=true \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.data_con_rprt=true \
@@ -478,10 +480,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.no_wait_for_card=1 \
     persist.vendor.radio.sap_silent_pin=1 \
     persist.vendor.radio.manual_nw_rej_ct=1 \
-    ril.subscription.types=NV,RUIM \
-    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    ro.com.android.dataroaming=true \
-    ro.telephony.default_network=22,22
+    persist.rcs.supported=1 \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ro.hardware.keystore_desede=true \
+    persist.vendor.radio.procedure_bytes=SKIP \
+
+# Enable reboot free DSDS
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.radio.reboot_on_modem_change=false
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    telephony.active_modems.max_count=2
+
+# Disable snapshot timer
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.radio.snapshot_enabled=0 \
+    persist.vendor.radio.snapshot_timer=0
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -520,10 +534,15 @@ PRODUCT_PACKAGES += \
     sensors.sdm845 \
     libsensorndkbridge
 
-# SSR
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+# Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ssr.enable_ramdumps=0 \
-    persist.vendor.ssr.restart_level=ALL_ENABLE
+    persist.vendor.sys.ssr.enable_ramdumps=1
+endif
+
+# Subsystem silent restart
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sys.ssr.restart_level=modem,slpi,adsp
 
 # TextClassifier
 PRODUCT_PACKAGES += \
@@ -594,6 +613,14 @@ PRODUCT_PACKAGES += \
 LIB_NL := libnl_32
 PRODUCT_PACKAGES += $(LIB_NL)
 
+#Set default CDMA subscription to RUIM
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_cdma_sub=0
+
+# Set network mode to Global by default and no DSDS/DSDA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=10
+
 # Set display color mode to Automatic by default
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.color_saturation=1.0 \
@@ -624,6 +651,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Do not skip init trigger by default
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     vendor.skip.init=0
+
+QTI_TELEPHONY_UTILS := qti-telephony-utils
+QTI_TELEPHONY_UTILS += qti_telephony_utils.xml
+PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
+
+HIDL_WRAPPER := qti-telephony-hidl-wrapper
+HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
+PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \

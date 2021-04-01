@@ -30,6 +30,8 @@ write_headers "beryllium dipper equuleus perseus polaris ursa"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-blueline.txt" true
+write_makefiles "${MY_DIR}/proprietary-files-flame.txt" true
 
 # Finish
 write_footers
