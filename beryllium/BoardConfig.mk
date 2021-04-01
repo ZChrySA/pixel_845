@@ -24,7 +24,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 TARGET_TAP_TO_WAKE_NODE := "/dev/input/event2"
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/../fstab.beryllium
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/../fstab.beryllium_recovery
 
 # Display
 TARGET_USES_DRM_PP := true
