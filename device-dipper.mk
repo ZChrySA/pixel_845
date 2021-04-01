@@ -110,4 +110,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/powerhint_early_wakeup.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 include device/xiaomi/dipper/nfc/nfc.mk
-include device/xiaomi/dipper/wifi.mk
