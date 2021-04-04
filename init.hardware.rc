@@ -48,8 +48,6 @@ on property:init.svc.vendor.charger=running
     write /proc/sys/kernel/sched_boost 0
     # Enable thermal mitigation
     write /sys/devices/virtual/thermal/tz-by-name/backup-charge/mode enabled
-    # Ensure 100% reporting is sticky
-    write /sys/class/power_supply/maxfg/offmode_charger 1
 
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
     mkdir /mnt/vendor/persist
