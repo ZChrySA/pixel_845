@@ -257,6 +257,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/init.hardware.sensors.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).sensors.sh \
     $(LOCAL_PATH)/init.hardware.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.$(PRODUCT_HARDWARE).sh \
+    $(LOCAL_PATH)/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh \
     $(LOCAL_PATH)/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qcom.usb.rc \
     $(LOCAL_PATH)/init.qcom.usb.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.usb.sh \
     $(LOCAL_PATH)/init.recovery.hardware.rc:recovery/root/init.recovery.$(PRODUCT_HARDWARE).rc \
