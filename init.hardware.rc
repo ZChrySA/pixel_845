@@ -1048,3 +1048,15 @@ on property:init.svc.vendor.hwcomposer-2-3=restarting
 on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=block && property:persist.ppd.fde.config=0
     setprop persist.ppd.fde.config 1
     start ppd
+
+# b/70518189 vDSO experiments
+on property:sys.vdso=*
+    write /sys/module/vdso/parameters/enable_32 1
+    write /sys/module/vdso/parameters/enable_64 1
+on property:sys.vdso=false
+    write /sys/module/vdso/parameters/enable_32 0
+    write /sys/module/vdso/parameters/enable_64 0
+on property:sys.vdso=64
+    write /sys/module/vdso/parameters/enable_32 0
+on property:sys.vdso=32
+    write /sys/module/vdso/parameters/enable_64 0
