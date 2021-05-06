@@ -552,10 +552,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Power EXT
-PRODUCT_PACKAGES += \
-    pixel-power-ext-ndk_platform
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
@@ -678,12 +674,6 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-full.so \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite.so
 
-BOARD_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/power-libperfmgr
-
 # persist
 PRODUCT_COPY_FILES += \
     device/xiaomi/dipper/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist
-
-# power HAL
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr-dipper
