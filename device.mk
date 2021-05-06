@@ -552,21 +552,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Thermal HAL
+# Power EXT
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.pixel \
     pixel-power-ext-ndk_platform
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
-    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE)_evt.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_evt.json
-
-# thermal-engine
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE)-novr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-novr-evt.conf \
-    $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE)-novr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-novr-prod.conf \
-    $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE)-vr-evt.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-vr-evt.conf \
-    $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE)-vr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-vr-prod.conf
 
 # USB
 PRODUCT_PACKAGES += \
@@ -678,8 +666,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/dipper/$(PRODUCT_PLATFORM)/kernel-headers
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
-
-include hardware/google/pixel/thermal/device.mk
 
 # HEH filename encryption is being dropped
 PRODUCT_PROPERTY_OVERRIDES += \
