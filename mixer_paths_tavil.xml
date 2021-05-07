@@ -1080,7 +1080,7 @@
     </path>
 
     <path name="deep-buffer-playback bt-sco-wb">
-        <path name="deep-buffer-playback bt-sco" />
+        <ctl name="BT SampleRate" value="KHZ_16" />
     </path>
 
     <path name="deep-buffer-playback afe-proxy">
