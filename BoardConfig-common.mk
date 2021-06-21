@@ -49,6 +49,10 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_BOOTLOADER_BOARD_NAME := sdm845
 TARGET_NO_BOOTLOADER := true
 
+# HOLY CTS LORDS - Don't patch plz google
+BOARD_KERNEL_CMDLINE += androidboot.verifiedbootstate=green
+# HOLY CTS LORDS - Don't patch plz google
+
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
