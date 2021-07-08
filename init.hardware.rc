@@ -174,10 +174,22 @@ on init && property:vendor.skip.init=0
     # Property used by vintf for sku specific manifests
     setprop ro.boot.product.hardware.sku ${ro.boot.cert}
 
+    # Property used by pointing to thermal-engine config file
+    setprop vendor.thermal.vr_mode -novr
+    setprop vendor.thermal.hw_mode -prod
+
     chown system camera /dev/mi-camera-vendor2hal
     chown system camera /dev/mi-camera-hal2vendor
     chmod 0660 /dev/mi-camera-vendor2hal
     chmod 0660 /dev/mi-camera-hal2vendor
+
+on late-init
+    write /sys/devices/virtual/thermal/tz-by-name/fps-therm-adc/mode enabled
+    chown system system /sys/devices/virtual/thermal/tz-by-name/fps-therm-monitor/trip_point_0_temp
+    chown system system /sys/devices/virtual/thermal/tz-by-name/fps-therm-monitor/trip_point_0_hyst
+    chown system system /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/trip_point_0_temp
+    chown system system /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/trip_point_0_hyst
+    chown system system /sys/devices/virtual/thermal/tz-by-name/soc/mode
 
 on fs
     mount_all /vendor/etc/fstab.qcom --early
@@ -960,7 +972,11 @@ service vendor.per_proxy /vendor/bin/pm-proxy
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
-service thermal-engine /system/vendor/bin/thermal-engine
+# reset thermal-engine when changed profile
+on property:vendor.thermal.vr_mode=*
+    restart vendor.thermal-engine
+
+service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-${ro.hardware}${vendor.thermal.vr_mode}${vendor.thermal.hw_mode}.conf
     class main
     user root
     socket thermal-send-client stream 0666 system system

@@ -206,16 +206,3 @@ vendor/lib64/libqmi_cci_xiaomi.so
 
 # Thermal Engine
 vendor/bin/thermal-engine
-vendor/etc/thermal-engine.conf
-vendor/etc/thermal-engine-sdm845-arvr.conf
-vendor/etc/thermal-engine-sdm845-camera.conf
-vendor/etc/thermal-engine-sdm845-class0.conf
-vendor/etc/thermal-engine-sdm845.conf
-vendor/etc/thermal-engine-sdm845-extreme.conf
-vendor/etc/thermal-engine-sdm845-high.conf
-vendor/etc/thermal-engine-sdm845-map.conf
-vendor/etc/thermal-engine-sdm845-nolimits.conf
-vendor/etc/thermal-engine-sdm845-phone.conf
-vendor/etc/thermal-engine-sdm845-pubgmhd.conf
-vendor/etc/thermal-engine-sdm845-sgame.conf
-vendor/etc/thermal-engine-sdm845-tgame.conf

@@ -263,6 +263,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.power.rc \
     $(LOCAL_PATH)/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
     $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    $(LOCAL_PATH)/thermal-engine-dipper-novr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-novr-prod.conf \
+    $(LOCAL_PATH)/thermal-engine-dipper-vr-prod.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE)-vr-prod.conf \
     $(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh
 
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
@@ -449,6 +451,9 @@ PRODUCT_PACKAGES += \
 # Perfd (dummy)
 PRODUCT_PACKAGES += \
     libqti-perfd-client
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 # Power
 PRODUCT_PACKAGES += \
@@ -681,3 +686,5 @@ PRODUCT_COPY_FILES += \
 # persist
 PRODUCT_COPY_FILES += \
     device/xiaomi/dipper/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist
+
+include hardware/google/pixel/thermal/device.mk
