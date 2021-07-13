@@ -90,8 +90,4 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/manifest_qcom_gnss.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_qcom_gnss.xml
 
-# Power
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/powerhint_no_early_wakeup.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 include device/xiaomi/dipper/nfc/nfc.mk

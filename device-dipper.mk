@@ -105,8 +105,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/manifest_brcm_gnss.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_brcm_gnss.xml
 
-# Power
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/powerhint_early_wakeup.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 include device/xiaomi/dipper/nfc/nfc.mk

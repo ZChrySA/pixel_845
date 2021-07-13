@@ -97,8 +97,3 @@ PRODUCT_PACKAGES += \
     mkfs.exfat \
     mkfs.ntfs \
     mount.ntfs
-
-# Power
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/powerhint_no_early_wakeup.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
