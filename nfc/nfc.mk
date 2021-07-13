@@ -36,4 +36,4 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default \
-    ro.se.type=eSE,HCE,UICC
+    ro.se.type=HCE,UICC
