@@ -355,6 +355,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
+# Dumpstate
+PRODUCT_PACKAGES += \
+    android.hardware.dumpstate@1.1-service.dipper
+
 # Fingerprint
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fingerprint/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845.rc

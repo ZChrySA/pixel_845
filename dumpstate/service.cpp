@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.dumpstate@1.1-service.crosshatch"
+#define LOG_TAG "android.hardware.dumpstate@1.1-service.dipper"
 
 #include <hidl/HidlSupport.h>
 #include <hidl/HidlTransportSupport.h>
