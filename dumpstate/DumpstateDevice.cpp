@@ -245,49 +245,17 @@ static void *dumpModemThread(void *data)
 }
 
 static void DumpTouch(int fd) {
-    if (!access("/sys/devices/virtual/sec/tsp", R_OK)) {
-        DumpFileToFd(fd, "LSI touch firmware version",
-                     "/sys/devices/virtual/sec/tsp/fw_version");
-        DumpFileToFd(fd, "LSI touch status",
-                     "/sys/devices/virtual/sec/tsp/status");
-        RunCommandToFd(fd, "Mutual Raw Data",
-                       {"/vendor/bin/sh", "-c",
-                        "echo run_rawdata_read_all > /sys/devices/virtual/sec/tsp/cmd"
-                        " && cat /sys/devices/virtual/sec/tsp/cmd_result"});
-        RunCommandToFd(fd, "Mutual Raw Cap",
-                       {"/vendor/bin/sh", "-c",
-                        "echo run_rawcap_read_all > /sys/devices/virtual/sec/tsp/cmd"
-                        " && cat /sys/devices/virtual/sec/tsp/cmd_result"});
-        RunCommandToFd(fd, "Mutual Strength",
-                       {"/vendor/bin/sh", "-c",
-                        "echo run_delta_read_all > /sys/devices/virtual/sec/tsp/cmd"
-                        " && cat /sys/devices/virtual/sec/tsp/cmd_result"});
-        RunCommandToFd(fd, "Self Raw",
-                       {"/vendor/bin/sh", "-c",
-                        "echo run_self_rawcap_read_all > /sys/devices/virtual/sec/tsp/cmd"
-                        " && cat /sys/devices/virtual/sec/tsp/cmd_result"});
-        RunCommandToFd(fd, "Self Strength",
-                       {"/vendor/bin/sh", "-c",
-                        "echo run_self_delta_read_all > /sys/devices/virtual/sec/tsp/cmd"
-                        " && cat /sys/devices/virtual/sec/tsp/cmd_result"});
-    }
-    if (!access("/sys/devices/platform/soc/888000.i2c/i2c-2/2-0049", R_OK)) {
+    if (!access("/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049", R_OK)) {
         DumpFileToFd(fd, "STM touch firmware version",
-                     "/sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/appid");
+                     "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049/appid");
         DumpFileToFd(fd, "STM touch status",
-                     "/sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/status");
-        RunCommandToFd(fd, "Mutual Raw",
-                       {"/vendor/bin/sh", "-c",
-                        "echo 13 00 > /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"
-                        " && cat /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"});
-        RunCommandToFd(fd, "Mutual Strength",
-                       {"/vendor/bin/sh", "-c",
-                        "echo 17 > /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"
-                        " && cat /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"});
-        RunCommandToFd(fd, "Self Raw",
-                       {"/vendor/bin/sh", "-c",
-                        "echo 15 00 > /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"
-                        " && cat /sys/devices/platform/soc/888000.i2c/i2c-2/2-0049/stm_fts_cmd"});
+                     "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049/status");
+        DumpFileToFd(fd, "Mutual Raw",
+                     "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049/ms_raw");
+        DumpFileToFd(fd, "Mutual Strength",
+                     "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049/ms_strength");
+        DumpFileToFd(fd, "Self Raw",
+                     "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0049/ss_raw");
     }
 }
 
@@ -315,18 +283,13 @@ static void DumpUFS(int fd) {
     DumpFileToFd(fd, "UFS model", "/sys/block/sda/device/model");
     DumpFileToFd(fd, "UFS rev", "/sys/block/sda/device/rev");
     DumpFileToFd(fd, "UFS size", "/sys/block/sda/size");
-    DumpFileToFd(fd, "UFS show_hba", "/sys/kernel/debug/ufshcd0/show_hba");
-    DumpFileToFd(fd, "UFS err_stats", "/sys/kernel/debug/ufshcd0/stats/err_stats");
-    DumpFileToFd(fd, "UFS io_stats", "/sys/kernel/debug/ufshcd0/stats/io_stats");
-    DumpFileToFd(fd, "UFS req_stats", "/sys/kernel/debug/ufshcd0/stats/req_stats");
+    DumpFileToFd(fd, "UFS show_hba", "/sys/kernel/debug/1d84000.ufshc/show_hba");
+    DumpFileToFd(fd, "UFS err_stats", "/sys/kernel/debug/1d84000.ufshc/stats/err_stats");
+    DumpFileToFd(fd, "UFS io_stats", "/sys/kernel/debug/1d84000.ufshc/stats/io_stats");
+    DumpFileToFd(fd, "UFS req_stats", "/sys/kernel/debug/1d84000.ufshc/stats/req_stats");
 
     std::string bootdev = android::base::GetProperty(UFS_BOOTDEVICE, "");
     if (!bootdev.empty()) {
-        DumpFileToFd(fd, "UFS Slow IO Read", "/sys/devices/platform/soc/" + bootdev + "/slowio_read_cnt");
-        DumpFileToFd(fd, "UFS Slow IO Write", "/sys/devices/platform/soc/" + bootdev + "/slowio_write_cnt");
-        DumpFileToFd(fd, "UFS Slow IO Unmap", "/sys/devices/platform/soc/" + bootdev + "/slowio_unmap_cnt");
-        DumpFileToFd(fd, "UFS Slow IO Sync", "/sys/devices/platform/soc/" + bootdev + "/slowio_sync_cnt");
-
         std::string ufs_health = "for f in $(find /sys/devices/platform/soc/" + bootdev + "/health -type f); do if [[ -r $f && -f $f ]]; then echo --- $f; cat $f; echo ''; fi; done";
         RunCommandToFd(fd, "UFS health", {"/vendor/bin/sh", "-c", ufs_health.c_str()});
     }
@@ -338,30 +301,6 @@ static void DumpPower(int fd) {
                    "echo -n \"Now: \" && date"});
     DumpFileToFd(fd, "Sleep Stats", "/sys/power/system_sleep/stats");
     DumpFileToFd(fd, "Power Management Stats", "/sys/power/rpmh_stats/master_stats");
-    DumpFileToFd(fd, "WLAN Power Stats", "/d/wlan0/power_stats");
-}
-
-static void DumpVibrator(int fd) {
-    const std::string dir = "/sys/class/leds/vibrator/device/";
-    const std::vector<std::string> files {
-        "comp_enable",
-        "cp_dig_scale",
-        "cp_trigger_index",
-        "cp_trigger_queue",
-        "dig_scale",
-        "f0_stored",
-        "heartbeat",
-        "leds/vibrator/activate",
-        "leds/vibrator/duration",
-        "leds/vibrator/state",
-        "num_waves",
-        "redc_stored",
-        "standby_timeout",
-    };
-
-    for (const auto &file : files) {
-        DumpFileToFd(fd, "Vibrator", dir+file);
-    }
 }
 
 // Methods from ::android::hardware::dumpstate::V1_0::IDumpstateDevice follow.
@@ -439,12 +378,7 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
 
     DumpPower(fd);
 
-    DumpFileToFd(fd, "LL-Stats", "/d/wlan0/ll_stats");
-    DumpFileToFd(fd, "WLAN Connect Info", "/d/wlan0/connect_info");
-    DumpFileToFd(fd, "WLAN Offload Info", "/d/wlan0/offload_info");
-    DumpFileToFd(fd, "WLAN Roaming Stats", "/d/wlan0/roam_stats");
     DumpFileToFd(fd, "ICNSS Stats", "/d/icnss/stats");
-    DumpFileToFd(fd, "SMD Log", "/d/ipc_logging/smd/log");
     RunCommandToFd(fd, "ION HEAPS", {"/vendor/bin/sh", "-c", "for d in $(ls -d /d/ion/*); do for f in $(ls $d); do echo --- $d/$f; cat $d/$f; done; done"});
     DumpFileToFd(fd, "dmabuf info", "/d/dma_buf/bufinfo");
     RunCommandToFd(fd, "Temperatures", {"/vendor/bin/sh", "-c", "for f in /sys/class/thermal/thermal* ; do type=`cat $f/type` ; temp=`cat $f/temp` ; echo \"$type: $temp\" ; done"});
@@ -456,11 +390,6 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
          "state=`cat $f` ; echo \"$f: $state\" ; done"});
     RunCommandToFd(fd, "CPU time-in-state", {"/vendor/bin/sh", "-c", "for cpu in /sys/devices/system/cpu/cpu*; do f=$cpu/cpufreq/stats/time_in_state; if [ ! -f $f ]; then continue; fi; echo $f:; cat $f; done"});
     RunCommandToFd(fd, "CPU cpuidle", {"/vendor/bin/sh", "-c", "for cpu in /sys/devices/system/cpu/cpu*; do for d in $cpu/cpuidle/state*; do if [ ! -d $d ]; then continue; fi; echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done; done"});
-    RunCommandToFd(fd, "Easel debug info", {"/vendor/bin/sh", "-c", "for f in `ls /sys/devices/platform/soc/a88000.i2c/i2c-0/0-0066/@(*curr|temperature|vbat|total_power)`; do echo \"$f: `cat $f`\" ; done; file=/sys/devices/virtual/misc/mnh_sm/state; echo \"$file: `cat $file`\""});
-    DumpFileToFd(fd, "MDP xlogs", "/data/vendor/display/mdp_xlog");
-    DumpFileToFd(fd, "TCPM logs", "/d/tcpm/usbpd0");
-    DumpFileToFd(fd, "PD Engine", "/d/logbuffer/usbpd");
-    DumpFileToFd(fd, "smb-lib", "/d/logbuffer/smblib");
     DumpFileToFd(fd, "ipc-local-ports", "/d/msm_ipc_router/dump_local_ports");
     DumpFileToFd(fd, "ipc-servers", "/d/msm_ipc_router/dump_servers");
     RunCommandToFd(fd, "ipc-logs",
@@ -470,50 +399,11 @@ Return<DumpstateStatus> DumpstateDevice::dumpstateBoard_1_1(const hidl_handle& h
     RunCommandToFd(fd, "USB Device Descriptors", {"/vendor/bin/sh", "-c", "cd /sys/bus/usb/devices/1-1 && cat product && cat bcdDevice; cat descriptors | od -t x1 -w16 -N96"});
     RunCommandToFd(fd, "Power supply properties", {"/vendor/bin/sh", "-c", "for f in `ls /sys/class/power_supply/*/uevent` ; do echo \"------ $f\\n`cat $f`\\n\" ; done"});
     RunCommandToFd(fd, "PMIC Votables", {"/vendor/bin/sh", "-c", "cat /sys/kernel/debug/pmic-votable/*/status"});
-    DumpFileToFd(fd, "Battery cycle count", "/sys/class/power_supply/bms/device/cycle_counts_bins");
-    DumpFileToFd(fd, "FG cycle count", "/sys/class/power_supply/maxfg/cycle_counts_bins");
-    DumpFileToFd(fd, "Maxim FG History", "/dev/maxfg_history");
-    DumpFileToFd(fd, "Maxim FG registers", "/d/regmap/4-0036/registers");
-    DumpFileToFd(fd, "Maxim FG NV RAM", "/d/regmap/4-000b/registers");
+    DumpFileToFd(fd, "Battery cycle count", "/sys/class/power_supply/bms/cycle_count");
     RunCommandToFd(fd, "QCOM FG SRAM", {"/vendor/bin/sh", "-c", "echo 0 > /d/fg/sram/address ; echo 500 > /d/fg/sram/count ; cat /d/fg/sram/data"});
-    DumpFileToFd(fd, "WLC VER", "/sys/devices/platform/soc/a88000.i2c/i2c-0/0-0061/version");
-    DumpFileToFd(fd, "WLC STATUS", "/sys/devices/platform/soc/a88000.i2c/i2c-0/0-0061/status");
-
-    RunCommandToFd(fd, "eSIM Status", {"/vendor/bin/sh", "-c", "od -t x1 /sys/firmware/devicetree/base/chosen/cdt/cdb2/esim"});
-    DumpFileToFd(fd, "Modem Stat", "/data/vendor/modem_stat/debug.txt");
-    DumpFileToFd(fd, "Pixel trace", "/d/tracing/instances/pixel-trace/trace");
-
-    /* Battery Defend setting */
-    RunCommandToFd(
-        fd, "TEMP-DEFEND Config",
-        {"/vendor/bin/sh", "-c",
-         " cd /sys/devices/platform/soc/soc:google,charger; for f in `ls bd_*` ; do echo "
-         "\"$f: `cat $f`\" ; done"});
-    RunCommandToFd(
-        fd, "DWELL-DEFEND Config",
-        {"/vendor/bin/sh", "-c",
-         " cd /sys/devices/platform/soc/soc:google,charger; for f in `ls charge_s*` ; do echo "
-         "\"$f: `cat $f`\" ; done"});
-
-    // Slower dump put later in case stuck the rest of dump
-    // Timeout after 3s as TZ log missing EOF
-    RunCommandToFd(fd, "QSEE logs", {"/vendor/bin/sh", "-c", "/vendor/bin/timeout 3 cat /d/tzdbg/qsee_log"});
-
-    // Citadel info
-    RunCommandToFd(fd, "Citadel VERSION", {"/vendor/bin/hw/citadel_updater", "-lv"});
-    RunCommandToFd(fd, "Citadel STATS", {"/vendor/bin/hw/citadel_updater", "--stats"});
-    RunCommandToFd(fd, "Citadel BOARDID", {"/vendor/bin/hw/citadel_updater", "--board_id"});
-
-    DumpVibrator(fd);
 
     // Dump various events in WiFi data path
     DumpFileToFd(fd, "WLAN DP Trace", "/d/wlan/dpt_stats/dump_set_dpt_logs");
-
-    // Keep this at the end as very long on not for humans
-    DumpFileToFd(fd, "WLAN FW Log Symbol Table", "/vendor/firmware/Data.msc");
-
-    // Dump fastrpc dma buffer size
-    DumpFileToFd(fd, "Fastrpc dma buffer", "/sys/kernel/fastrpc/total_dma_kb");
 
     if (modemThreadHandle) {
         pthread_join(modemThreadHandle, NULL);
