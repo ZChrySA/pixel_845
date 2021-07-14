@@ -52,29 +52,6 @@ static T get(const std::string& path, const T& def) {
 }
 
 static constexpr int kDefaultMaxBrightness = 255;
-static constexpr int kRampSteps = 8;
-static constexpr int kRampMaxStepDurationMs = 50;
-
-static uint32_t getBrightness(const LightState& state) {
-    uint32_t alpha, red, green, blue;
-
-    // Extract brightness from AARRGGBB
-    alpha = (state.color >> 24) & 0xff;
-
-    // Retrieve each of the RGB colors
-    red = (state.color >> 16) & 0xff;
-    green = (state.color >> 8) & 0xff;
-    blue = state.color & 0xff;
-
-    // Scale RGB colors if a brightness has been applied by the user
-    if (alpha != 0xff) {
-        red = red * alpha / 0xff;
-        green = green * alpha / 0xff;
-        blue = blue * alpha / 0xff;
-    }
-
-    return (77 * red + 150 * green + 29 * blue) >> 8;
-}
 
 static constexpr uint32_t kBrightnessNoBlink = 5;
 
