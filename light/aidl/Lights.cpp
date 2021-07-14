@@ -36,7 +36,29 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
+/*
+ * Read from path and close file.
+ * Return def in case of any failure.
+ */
+template <typename T>
+static T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+
+    file >> result;
+    return file.fail() ? def : result;
+}
+
+static constexpr int kDefaultMaxBrightness = 255;
+
 static constexpr uint32_t kBrightnessNoBlink = 5;
+
+static uint32_t rgbToBrightness(const HwLightState& state) {
+    uint32_t color = state.color & 0x00ffffff;
+    return ((77 * ((color >> 16) & 0xff))
+            + (150 * ((color >> 8) & 0xff))
+            + (29 * (color & 0xff))) >> 8;
+}
 
 const static std::map<LightType, int> kSupportedLights = {
     {LightType::BACKLIGHT, 3},
@@ -66,8 +88,17 @@ ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
         ALOGE("Light not supported");
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
+
     if (id == (int)LightType::BACKLIGHT) {
-        ALOGD("Do nothing for screen backlight brightness.");
+        int maxBrightness = get("/sys/class/backlight/panel0-backlight/max_brightness", -1);
+        if (maxBrightness < 0) {
+            maxBrightness = kDefaultMaxBrightness;
+        }
+        uint32_t sentBrightness = rgbToBrightness(state);
+        uint32_t brightness = sentBrightness * maxBrightness / kDefaultMaxBrightness;
+        LOG(DEBUG) << "Writing backlight brightness " << brightness
+                << " (orig " << sentBrightness << ")";
+        set("/sys/class/backlight/panel0-backlight/brightness", brightness);
         return ndk::ScopedAStatus::ok();
     }
 
